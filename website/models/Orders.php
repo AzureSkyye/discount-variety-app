@@ -14,6 +14,7 @@ class Orders
     {
         $this->purchased_item = '';
         $this->quantity = '';
+        $this->purchase_error = array();
     }
 
     public function getPurchaseID()
