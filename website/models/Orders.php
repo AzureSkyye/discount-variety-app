@@ -2,7 +2,7 @@
 
 class Orders
 {
-    private $purchase_id;
+    private $order_id;
     private $product_id;
     private $user_id;
     private $quantity;
@@ -18,7 +18,12 @@ class Orders
 
     public function getPurchaseID()
     {
-        return $this->purchase_id;
+        return $this->order_id;
+    }
+
+    public function setOrderID($order_id)
+    {
+        $this->order_id = $order_id;
     }
 
     public function getProductID()
@@ -26,9 +31,19 @@ class Orders
         return $this->product_id;
     }
 
+    public function setProductID($product_id)
+    {
+        $this->product_id = $product_id;
+    }
+
     public function getuserID()
     {
         return $this->user_id;
+    }
+
+    public function setUserID($user_id)
+    {
+        $this->user_id = $user_id;
     }
 
     public function getQuantity()
