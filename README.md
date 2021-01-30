@@ -1,7 +1,7 @@
 # discount-variety-app
 CSE3101 Semester Project
 
-Contains the code for the project
+Contains the code for the project, donwnload, and/or clone the repo to your local machine
 
 # Do no update the main branch
 I will create a second branch for updates, for now save everything to your local machines.
