@@ -7,7 +7,7 @@ class User
     private $last_name;
     private $email;
     private $pkey;
-
+    private $is_admin;
     public $user_error;
 
     public function __construct()
@@ -16,6 +16,7 @@ class User
         $this->last_name = '';
         $this->email = '';
         $this->pkey = '';
+        $this->is_admin = '';
         $this->user_error = array();
     }
 
@@ -56,11 +57,16 @@ class User
 
     public function getPkey()
     {
-        return $this->pKey;
+        return $this->pkey;
     }
 
     public function setPkey($pkey)
     {
         $this->pkey = $pkey;
+    }
+
+    public function isAdmin()
+    {
+        return $this->is_admin;
     }
 }
