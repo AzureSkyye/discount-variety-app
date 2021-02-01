@@ -17,7 +17,7 @@ class Orders
         $this->purchase_error = array();
     }
 
-    public function getPurchaseID()
+    public function getOrderID()
     {
         return $this->order_id;
     }
