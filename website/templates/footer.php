@@ -1,6 +1,6 @@
-<footer class="bg-dark p-4">
-    <div class="container p-4">
-        <div class="d-flex justify-content-around align-items-center p-4">
+<footer class="bg-dark">
+    <div class="container-fluid p-4">
+        <div class="d-flex justify-content-around p-4">
             <div class=" foot border-start border-2 border-secondary">
                 <h6 class="ms-lg-4 mb-3 text-light fw-bold">Contact</h6>
                 <p class="text-secondary ms-lg-4">Twitter</p>
