@@ -77,10 +77,10 @@ class UserController
             }
         }
 
-        if (empty($_POST['password'])) {
+        if (empty($_POST['pkey'])) {
             array_push($registeredUser->errorMsg, 'Password field empty');
         } else {
-            $registeredUser->setPkey($_POST['password']);
+            $registeredUser->setPkey($_POST['pkey']);
         }
 
         return $registeredUser->errorMsg;
