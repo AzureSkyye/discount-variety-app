@@ -9,6 +9,8 @@ body,
 html {
     padding: 0;
     margin: 0;
+    background-color: var(--primary);
+    position: relative;
 }
 
 h1,
@@ -16,7 +18,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.nav-link {
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -24,28 +27,49 @@ p,
 small,
 a,
 button,
-input {
+input,
+label {
     font-family: 'Roboto', serif;
 }
 
-.item {
-    background-color: var(--primary);
-}
-
-.sections {
-    padding: 50px 0;
-    border-bottom: 1px solid var(--hightlight);
+.product-img {
+    border-right: 1px solid #a4a4a4;
 }
 
 #landing {
+    padding: 60px 0;
+}
+
+.sections {
+    border-bottom: 1px solid var(--hightlight);
+}
+
+#categories {
+    padding: 0px 0px 60px;
+}
+
+.first {
     background-color: var(--primary);
 }
 
-#products {
+.second,
+.item,
+.wrap {
     background-color: var(--secondary);
 }
 
-div>.product {
+div>.info {
     width: 3.5rem;
     height: 3.5rem;
+}
+
+.field {
+    width: 25rem;
+    padding: 5px 8px;
+    outline-style: initial;
+    outline-color: brown;
+}
+
+.forms {
+    min-height: 100vh;
 }
