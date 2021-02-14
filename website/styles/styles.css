@@ -81,3 +81,7 @@ div>.info {
 .forms {
     min-height: 100vh;
 }
+
+hr {
+    height: 2px;
+}
