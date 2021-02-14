@@ -27,7 +27,7 @@
                                 <p class="m-0 text-danger">Price: $3000</p>
                             </div>
                             <form action="">
-                                <button class="btn btn-outline-dark">Purchase</button>
+                                <button class="btn btn-outline-dark">See Item</button>
                             </form>
                         </div>
                     </div>
@@ -43,13 +43,13 @@
                                 <p class="m-0 text-danger">Price: $3000</p>
                             </div>
                             <form action="">
-                                <button class="btn btn-outline-dark">Purchase</button>
+                                <button class="btn btn-outline-dark">See Item</button>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="m-2 d-flex justify-content-center">
-                    <form action="">
+                <div class="m-2 px d-flex justify-content-end">
+                    <form action="" class="px-2">
                         <button class="btn btn-dark">View More</button>
                     </form>
                 </div>
@@ -70,7 +70,7 @@
                                 <p class="m-0 text-danger">Price: $3000</p>
                             </div>
                             <form action="">
-                                <button class="btn btn-outline-dark">Purchase</button>
+                                <button class="btn btn-outline-dark">See Item</button>
                             </form>
                         </div>
                     </div>
@@ -86,13 +86,13 @@
                                 <p class="m-0 text-danger">Price: $3000</p>
                             </div>
                             <form action="">
-                                <button class="btn btn-outline-dark">Purchase</button>
+                                <button class="btn btn-outline-dark">See Item</button>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="m-2 d-flex justify-content-center">
-                    <form action="">
+                <div class="m-2 px d-flex justify-content-end">
+                    <form action="" class="px-2">
                         <button class="btn btn-dark">View More</button>
                     </form>
                 </div>
@@ -129,5 +129,4 @@
             </div>
         </div>
     </div>
-
     <?php include('../templates/footer.php'); ?>
