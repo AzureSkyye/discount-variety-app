@@ -13,7 +13,7 @@
             <p>Prices are all vat exclusive</p>
         </div>
     </div>
-    <hr>
+    <hr class="mt-0">
 
     <!-- Products Section -->
     <section id="products" class="sections r">
@@ -27,7 +27,7 @@
                             <h5><span class="px-2 bg-dark text-light rounded">Electronics</span></h5>
                         </div>
                         <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/devices.png" alt="" class="item" style="width: 70%">
+                            <img src="../assets/devices.png" alt="" class="item" style="width: 210px; height: 210px;">
                             <div class="d-flex flex-column justify-content-center px-4">
                                 <h3 class="title">Helios Predator 300</h3>
                                 <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
@@ -43,7 +43,7 @@
                             </div>
                         </div>
                         <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/devices.png" alt="" class="item" style="width: 70%">
+                            <img src="../assets/devices.png" alt="" class="item" style="width: 210px; height: 210px;">
                             <div class="d-flex flex-column justify-content-center px-4">
                                 <h3 class="title">Triton Predator 300</h3>
                                 <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
@@ -72,7 +72,7 @@
                             <h5><span class="px-2 bg-dark text-light rounded">Stationary</span></h5>
                         </div>
                         <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/stationary.png" alt="" class="item" style="width: 70%">
+                            <img src="../assets/stationary.png" alt="" class="item" style="width: 210px; height: 210px;">
                             <div class="d-flex flex-column justify-content-center px-4">
                                 <h3 class="title">Arteza Paint Brushes</h3>
                                 <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/stationary.png" alt="" class="item" style="width: 70%">
+                            <img src="../assets/stationary.png" alt="" class="item" style="width: 210px; height: 210px;">
                             <div class="d-flex flex-column justify-content-center px-4">
                                 <h3 class="title">Arteza Acrylic Paint Set</h3>
                                 <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
@@ -117,7 +117,7 @@
                             <h5><span class="px-2 bg-dark text-light rounded">Clothing</span></h5>
                         </div>
                         <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/clothing.png" alt="" class="item" style="width: 70%">
+                            <img src="../assets/clothing.png" alt="" class="item" style="width: 210px; height: 210px;">
                             <div class="d-flex flex-column justify-content-center px-4">
                                 <h3 class="title">Polo Shirts</h3>
                                 <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
@@ -133,7 +133,7 @@
                             </div>
                         </div>
                         <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/clothing.png" alt="" class="item" style="width: 70%">
+                            <img src="../assets/clothing.png" alt="" class="item" style="width: 210px; height: 210px;">
                             <div class="d-flex flex-column justify-content-center px-4">
                                 <h3 class="title">Under Armor Shoes</h3>
                                 <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
@@ -162,7 +162,7 @@
                             <h5><span class="px-2 bg-dark text-light rounded">Games and Consoles</span></h5>
                         </div>
                         <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/games.png" alt="" class="item" style="width: 70%">
+                            <img src="../assets/games.png" alt="" class="item" style="width: 210px; height: 210px;">
                             <div class="d-flex flex-column justify-content-center px-4">
                                 <h3 class="title">PS5 Pro 512GB</h3>
                                 <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
@@ -178,7 +178,7 @@
                             </div>
                         </div>
                         <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/games.png" alt="" class="item" style="width: 70%">
+                            <img src="../assets/games.png" alt="" class="item" style="width: 210px; height: 210px;">
                             <div class="d-flex flex-column justify-content-center px-4">
                                 <h3 class="title">Legend of Zelda: Breath of the Wild</h3>
                                 <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
@@ -207,7 +207,7 @@
                             <h5><span class="px-2 bg-dark text-light rounded">Furniture and Accessories</span></h5>
                         </div>
                         <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/furniture.png" alt="" class="item" style="width: 70%">
+                            <img src="../assets/furniture.png" alt="" class="item" style="width: 210px; height: 210px;">
                             <div class="d-flex flex-column justify-content-center px-4">
                                 <h3 class="title">Xtech Office Desk</h3>
                                 <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
@@ -223,7 +223,7 @@
                             </div>
                         </div>
                         <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/furniture.png" alt="" class="item" style="width: 70%">
+                            <img src="../assets/furniture.png" alt="" class="item" style="width: 210px; height: 210px;">
                             <div class="d-flex flex-column justify-content-center px-4">
                                 <h3 class="title">Serta Comfort Mattress</h3>
                                 <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
@@ -252,7 +252,7 @@
                             <h5><span class="px-2 bg-dark text-light rounded">Tools and Equipment</span></h5>
                         </div>
                         <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/tools.png" alt="" class="item" style="width: 70%">
+                            <img src="../assets/tools.png" alt="" class="item" style="width: 210px; height: 210px;">
                             <div class="d-flex flex-column justify-content-center px-4">
                                 <h3 class="title">Wahl Bits Toolkit</h3>
                                 <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
@@ -268,7 +268,7 @@
                             </div>
                         </div>
                         <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/tools.png" alt="" class="item" style="width: 70%">
+                            <img src="../assets/tools.png" alt="" class="item" style="width: 210px; height: 210px;">
                             <div class="d-flex flex-column justify-content-center px-4">
                                 <h3 class="title">Cat Constrution Set</h3>
                                 <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>

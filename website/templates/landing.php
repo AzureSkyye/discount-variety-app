@@ -17,12 +17,12 @@
                             <p class="px-4 py-2 fs-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore esse beatae deserunt reprehenderit laborum atque
                                 magni perspiciatis quis nobis minima, ut nihil illo quibusdam quam iure praesentium consequuntur. Ratione, impedit.</p>
                         </div>
-                        <img src="../assets/clothing.png" class="d-block" alt="..." style="width: 80%">
+                        <img src="../assets/clothing.png" class="d-block" style="max-width: 471px; max-height: 471px;">
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="d-flex justify-content-center align-items-center">
-                        <img src="../assets/devices.png" class="d-block" alt="..." style="width: 80%">
+                        <img src="../assets/devices.png" class="d-block" style="width: 471px; height: 471px;">
                         <div class="d-flex flex-column p-2 m-4">
                             <h1 class="px-4 py-2">Landing Section</h1>
                             <p class="px-4 py-2 fs-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore esse beatae deserunt reprehenderit laborum atque
@@ -37,12 +37,12 @@
                             <p class="px-4 py-2 fs-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore esse beatae deserunt reprehenderit laborum atque
                                 magni perspiciatis quis nobis minima, ut nihil illo quibusdam quam iure praesentium consequuntur. Ratione, impedit.</p>
                         </div>
-                        <img src="../assets/stationary.png" class="d-block" alt="..." style="width: 80%">
+                        <img src="../assets/stationary.png" class="d-block" style="width: 471px; height: 471px;">
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="d-flex justify-content-center align-items-center">
-                        <img src="../assets/furniture.png" class="d-block" alt="..." style="width: 80%">
+                        <img src="../assets/furniture.png" class="d-block" style="width: 471px; height: 471px;">
                         <div class="d-flex flex-column p-2 m-4">
                             <h1 class="px-4 py-2">Landing Section</h1>
                             <p class="px-4 py-2 fs-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore esse beatae deserunt reprehenderit laborum atque
@@ -57,12 +57,12 @@
                             <p class="px-4 py-2 fs-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore esse beatae deserunt reprehenderit laborum atque
                                 magni perspiciatis quis nobis minima, ut nihil illo quibusdam quam iure praesentium consequuntur. Ratione, impedit.</p>
                         </div>
-                        <img src="../assets/games.png" class="d-block" alt="..." style="width: 80%">
+                        <img src="../assets/games.png" class="d-block" style="width: 471px; height: 471px;">
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="d-flex justify-content-center align-items-center">
-                        <img src="../assets/tools.png" class="d-block" alt="..." style="width: 80%">
+                        <img src="../assets/tools.png" class="d-block" style="width: 471px; height: 471px;">
                         <div class="d-flex flex-column p-2 m-4">
                             <h1 class="px-4 py-2">Landing Section</h1>
                             <p class="px-4 py-2 fs-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore esse beatae deserunt reprehenderit laborum atque
