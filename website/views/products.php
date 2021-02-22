@@ -12,9 +12,9 @@
             </div>
             <?php foreach ($categoryStore as $row) { ?>
                 <div class="col-4">
-                    <div class="card d-flex flex-column align-items-center border">
+                    <div class="item card d-flex flex-column align-items-center border shadow">
                         <img src="../assets/<?php echo $row['category']; ?>.png" class="card-img-top" style="width: 300px; height: 300px;">
-                        <div class="card-body border">
+                        <div class="card-body border first">
                             <h5 class="card-title"><?php echo $row['product_name']; ?></h5>
                             <p class="card-text"><?php echo $row['product_desc']; ?></p>
                             <hr>
@@ -31,7 +31,7 @@
                                     </p>
                                 </div>
                                 <div>
-                                    <a href="#" class="btn btn-dark">View Item</a>
+                                    <a href="../index.php?id=<?php echo $row['product_id']; ?>" class="btn btn-dark">View Item</a>
                                 </div>
                             </div>
                         </div>

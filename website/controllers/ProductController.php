@@ -216,7 +216,7 @@ class ProductController
             $productArr = $this->productModel->readCategory($category);
             $_SESSION['categoryStore'] = serialize($productArr);
 
-            header("Location: views/category.php?in=$category");
+            header("Location: views/products.php?in=$category");
         } catch (Exception $e) {
             throw $e;
         }

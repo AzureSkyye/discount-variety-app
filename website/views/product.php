@@ -4,13 +4,19 @@
 
     <?php include('../templates/navbar.php'); ?>
 
-    <section id="view" class="container d-flex justify-content-center align-items-center">
+    <section id="purchase" class="container d-flex justify-content-center align-items-center">
 
         <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-12 my-4 d-flex flex-column justify-content-center align-items-center">
+                <h1 class="text-center">Purchase</h1>
+                <a class="nav-link p-0 m-0 text-success" href="../index.php?category=<?php echo $productObj->getCategory(); ?>">
+                    More items in <?php echo $productObj->getCategory(); ?>
+                </a>
+            </div>
             <div class="col-5">
-                <div class="card d-flex flex-column align-items-center border">
+                <div class="card d-flex flex-column align-items-center border shadow item">
                     <img src="../assets/<?php echo $productObj->getCategory(); ?>.png" class="card-img-top" style="width: 300px; height: 300px;">
-                    <div class="card-body border">
+                    <div class="card-body border first">
                         <h5 class="card-title"><?php echo $productObj->getProductName(); ?></h5>
                         <p class="card-text"><?php echo $productObj->getProductDesc(); ?></p>
                         <hr>

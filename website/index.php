@@ -55,13 +55,9 @@ try {
                 $productController->updateProduct();
                 break;
         }
-    }
-
-    if (isset($_REQUEST['id'])) {
+    } else if (isset($_REQUEST['id'])) {
         $productController->displayProduct();
-    }
-
-    if (isset($_REQUEST['category'])) {
+    } else if (isset($_REQUEST['category'])) {
         switch ($_REQUEST['category']) {
             case "Electronics":
                 $productController->displayByCategory("electronics");
