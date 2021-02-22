@@ -11,6 +11,7 @@ html {
     margin: 0;
     background-color: var(--primary);
     position: relative;
+    font-family: 'Roboto', serif;
 }
 
 h1,
@@ -21,15 +22,6 @@ h5,
 h6,
 .nav-link {
     font-family: 'Quicksand', sans-serif;
-}
-
-p,
-small,
-a,
-button,
-input,
-label {
-    font-family: 'Roboto', serif;
 }
 
 a {
@@ -50,6 +42,10 @@ footer {
 
 .sections {
     border-bottom: 1px solid var(--hightlight);
+}
+
+#add-product {
+    min-height: 100vh;
 }
 
 #categories {
@@ -78,10 +74,16 @@ div>.info {
     outline-color: brown;
 }
 
-.forms {
+.forms,
+.table-wrapper,
+#view {
     min-height: 100vh;
 }
 
 hr {
     height: 2px;
+}
+
+.radio {
+    margin-right: 20px;
 }

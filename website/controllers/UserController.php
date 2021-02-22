@@ -2,6 +2,7 @@
 
 require('models/UserModel.php');
 require('models/User.php');
+require('ProductController.php');
 require_once('models/DatabaseModel.php');
 
 session_status() === PHP_SESSION_ACTIVE ? TRUE : session_start();
@@ -11,104 +12,110 @@ class UserController
     public function __construct()
     {
         $this->userObj = new UserModel();
-    }
-
-    public function userHandler()
-    {
-        $user = isset($_GET['user']) ? $_GET['user'] : NULL;
-        switch ($user) {
-            case 'create':
-                $this->createUser();
-                break;
-            case 'validate':
-                $this->validateLogin();
-                break;
-            case 'guest':
-                $this->guestLogin();
-                break;
-            case 'logout':
-                $this->logout();
-                break;
-        }
+        $this->displayObj = new ProductController();
     }
 
     public function validateSignUpCredentials($newUser)
     {
-        if (empty($newUser->getFirstName())) {
-            array_push($newUser->errorMsg, "First name field is empty");
-        } else {
-            $newUser->setFirstName($_POST['first_name']);
-        }
-
-        if (empty($newUser->getLastName())) {
-            array_push($newUser->errorMsg, "Last name field is empty");
-        } else {
-            $newUser->setLastName($_POST['last_name']);
-        }
-
-        if (empty($newUser->getEmail())) {
-            array_push($newUser->errorMsg, "Email field is empty");
-        } else {
-            if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                array_push($newUser->errorMsg, "Not a valid email");
+        try {
+            if (empty($_POST['first_name'])) {
+                $newUser->errorMsg['first_name'] = "First name field is empty";
             } else {
-                $newUser->setEmail($_POST['email']);
+                $newUser->setFirstName(trim($_POST['first_name']));
+                if (!preg_match('/^[a-zA-Z\s]+$/', $newUser->getFirstName())) {
+                    $newUser->errorMsg['first_name'] = "No special characters or numbers";
+                } else if (!preg_match('/^[a-zA-Z]{2,20}+$/', $newUser->getFirstName())) {
+                    $newUser->errorMsg['first_name'] = "Between 2-20 characters long";
+                }
             }
-        }
 
-        if (empty($_POST['pkey'])) {
-            array_push($newUser->errorMsg, 'Password field is empty');
-        } else {
-            $newUser->setPkey($_POST['pkey']);
-        }
+            if (empty($_POST['last_name'])) {
+                $newUser->errorMsg['last_name'] = "Last name field is empty";
+            } else {
+                $newUser->setLastName(trim($_POST['last_name']));
+                if (!preg_match('/^[a-zA-Z\s]+$/', $newUser->getLastName())) {
+                    $newUser->errorMsg['last_name'] = "No special characters or numbers";
+                } else if (!preg_match('/^[a-zA-Z]{2,20}+$/', $newUser->getLastName())) {
+                    $newUser->errorMsg['last_name'] = "Between 2-20 characters long";
+                }
+            }
 
-        return $newUser->errorMsg;
+            if (empty($_POST['email'])) {
+                $newUser->errorMsg['email'] = "Email field is empty";
+            } else {
+                if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                    $newUser->errorMsg['email'] = 'Invalid email';
+                } else {
+                    $newUser->setEmail(trim($_POST['email']));
+                }
+            }
+
+            if (empty($_POST['pkey'])) {
+                $newUser->errorMsg['pkey'] = 'Password field is empty';
+            } else {
+                $newUser->setPkey($_POST['pkey']);
+                if (!preg_match('/^[a-zA-Z0-9]{8,}$/', $newUser->getPkey())) {
+                    $newUser->errorMsg['pkey'] = "At least 8 characters long";
+                }
+            }
+        } catch (Exception $e) {
+            throw $e;
+        }
     }
 
     public function validateLoginCredentials($registeredUser)
     {
-        if (empty($registeredUser->getEmail())) {
-            array_push($registeredUser->errorMsg, 'Email field empty');
-        } else {
-            if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                array_push($registeredUser->errorMsg, "Not a valid email");
+        try {
+            if (empty($_POST['email'])) {
+                $registeredUser->errorMsg['email'] = "Email field is empty";
             } else {
-                $registeredUser->setEmail($_POST['email']);
+                if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                    $registeredUser->errorMsg['email'] = 'Invalid email or password';
+                } else {
+                    $registeredUser->setEmail(trim($_POST['email']));
+                }
             }
-        }
 
-        if (empty($_POST['pkey'])) {
-            array_push($registeredUser->errorMsg, 'Password field empty');
-        } else {
-            $registeredUser->setPkey($_POST['pkey']);
+            if (empty($_POST['pkey'])) {
+                $registeredUser->errorMsg['pkey'] = 'Password field empty';
+            } else {
+                $registeredUser->setPkey(trim($_POST['pkey']));
+            }
+        } catch (Exception $e) {
+            throw $e;
         }
-
-        return $registeredUser->errorMsg;
     }
 
-    public function createUser()
+    public function userSignup()
     {
         try {
-
+            $newUser = new User();
             if (isset($_POST['submit'])) {
-                $newUser = new User();
-                $newUser->setFirstName(trim($_POST['first_name']));
-                $newUser->setLastName(trim($_POST['last_name']));
-                $newUser->setEmail(trim($_POST['email']));
-                $newUser->setPkey($_POST['pkey']);
-
-                // Set error messages
+                // Set user properties
                 $this->validateSignUpCredentials($newUser);
-
-                if (!empty($newUser->errorMsg)) {
+                $errorArr = $newUser->errorMsg;
+                // Unset empty Keys
+                foreach ($errorArr as $key => $value) {
+                    if (empty($value)) {
+                        unset($errorArr[$key]);
+                    }
+                }
+                // Check errors before signup
+                if (!empty($errorArr)) {
                     $_SESSION['userObj'] = serialize($newUser);
                     header('Location: views/signup.php');
                 } else {
-                    $user = $this->userObj->create($newUser);
-                    foreach ($user as $id) {
-                        $_SESSION['user_id'] = $id['user_id'];
+                    $userProperties = $this->userObj->create(
+                        $newUser->getFirstName(),
+                        $newUser->getLastName(),
+                        $newUser->getEmail(),
+                        $newUser->getPkey(),
+                    );
+                    foreach ($userProperties as $row) {
+                        $newUser->setFirstName(trim($row['first_name']));
+                        $newUser->setLastName(trim($row['last_name']));
+                        $newUser->setUserID(trim($row['user_id']));
                     }
-                    $_SESSION['first_name'] = $newUser->getFirstName();
                     $_SESSION['userObj'] = serialize($newUser);
                     header('Location: views/home.php');
                 }
@@ -118,50 +125,58 @@ class UserController
         }
     }
 
-    public function validateLogin()
+    public function userLogin()
     {
         try {
             $registeredUser = new User();
             if (isset($_POST['submit'])) {
-                $registeredUser->setEmail(trim($_POST['email']));
-                $registeredUser->setPkey($_POST['password']);
-
-                // Set error messages
+                // Set user properties
                 $this->validateLoginCredentials($registeredUser);
-                if (!empty($registeredUser->errorMsg)) {
+                $errorArr = $registeredUser->errorMsg;
+                // Unset key values
+                foreach ($errorArr as $key => $value) {
+                    if (empty($value)) {
+                        unset($errorArr[$key]);
+                    }
+                }
+                // Check for errors before login
+                if (!empty($errorArr)) {
                     $_SESSION['userObj'] = serialize($registeredUser);
                     header('Location: views/signin.php');
                 }
-                // Check for login values
-                $checkArr = $this->userObj->validate($registeredUser);
-                if (!empty($checkArr)) {
-                    foreach ($checkArr as $row) {
 
-                        // Check if they are admin first
-                        if ($registeredUser->isAdmin()) {
-                            $_SESSION['first_name'] = $row['first_name'];
-                            $_SESSION['user_id'] = $row['user_id'];
+                // Check if it is an admin
+                $adminArr = $this->userObj->verifyAdmin();
+                foreach ($adminArr as $row) {
+                    if (
+                        $registeredUser->getEmail() == $row['email'] &&
+                        sha1($registeredUser->getPkey()) == $row['pkey']
+                    ) {
+                        // Set Inventory Objects
+                        $this->displayObj->inventoryStore();
+                        $this->userStore();
+                        $registeredUser->setFirstName(trim($row['first_name']));
+                        $_SESSION['userObj'] = serialize($registeredUser);
+                        header('Location: views/admin/inventory.php');
+                    } else {
+                        $userProperties = $this->userObj->validate(
+                            $registeredUser->getEmail(),
+                            $registeredUser->getPkey()
+                        );
+                        if (!empty($userProperties)) {
+                            foreach ($userProperties as $row) {
+                                $registeredUser->setFirstName(trim($row['first_name']));
+                                $registeredUser->setLastName(trim($row['last_name']));
+                                $registeredUser->setUserID(trim($row['user_id']));
+                            }
                             $_SESSION['userObj'] = serialize($registeredUser);
                             header('Location: views/home.php');
-                        }
-
-                        if (
-                            $registeredUser->getEmail() == $row['email'] &&
-                            $registeredUser->getPkey() == $row['pkey']
-                        ) {
-                            $registeredUser->setUserID($row['user_id']);
-                            $registeredUser->setFirstName($row['first_name']);
-                            $_SESSION['first_name'] = $row['first_name'];
-                            $_SESSION['last_name'] = $row['last_name'];
-                            $_SESSION['user_id'] = $row['user_id'];
+                        } else {
+                            $registeredUser->errorMsg['login_error'] = "Invalid email or password";
                             $_SESSION['userObj'] = serialize($registeredUser);
-                            header('Location: views/home.php');
+                            header('Location: views/signin.php');
                         }
                     }
-                } else {
-                    array_push($registeredUser->errorMsg, "Error in form");
-                    $_SESSION['userObj'] = serialize($registeredUser);
-                    header('Location: views/signin.php');
                 }
             }
         } catch (Exception $e) {
@@ -175,9 +190,34 @@ class UserController
         header("Location: views/home.php");
     }
 
-    public function logout()
+    public function userLogout()
     {
         session_unset();
         header('Location: views/signin.php');
+    }
+
+    public function userStore()
+    {
+        try {
+            // Load all of the product objects properties
+            $userStore = $this->userObj->readAll();
+            $_SESSION['userStore'] = serialize($userStore);
+        } catch (Exception $e) {
+            throw $e;
+        }
+    }
+
+    public function deleteUser()
+    {
+        try {
+            if (isset($_POST['delete_user'])) {
+                echo $_POST['user_id'];
+                $this->userObj->delete($_POST['user_id']);
+                $this->userStore();
+                header('Location: views/admin/users.php');
+            }
+        } catch (Exception $e) {
+            throw $e;
+        }
     }
 }

@@ -4,16 +4,16 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="#">Discount Variety</a>
+            <a class="navbar-brand" href="home.php">Discount Variety</a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" aria-current="page" href="home.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#products">Products</a>
+                    <a class="nav-link" href="home.php#products">Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" tabindex="-1">Contact</a>
+                    <a class="nav-link" href="#contact" tabindex="-1">Contact</a>
                 </li>
             </ul>
             <div class="d-flex">
@@ -25,7 +25,8 @@
                     <svg class="text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 40px">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
-                    <a class="px-2 ms-2 text-secondary text-decoration-none" href="../views/signin.php">Logout</a>
+                    <small class="pe-4 ps-2 text-secondary align-self-center"><?php echo $userObj->getFirstName(); ?></small>
+                    <a class="px-2 ms-2 text-secondary text-decoration-none" href="../index.php?user=logout">Logout</a>
                 </div>
             </div>
         </div>

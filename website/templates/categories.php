@@ -14,15 +14,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
                         </svg>
                     </div>
-                    <img src="../assets/devices.png" alt="" class="card-img-top align-self-center" style="width: 70%">
+                    <img src="../assets/Electronics.png" alt="" class="card-img-top align-self-center" style="width: 70%">
                     <div class="card-body text-center">
                         <h5 class="card-title fs-5 fw-bold">Electronics</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     </div>
                     <div class="card-footer bg-dark d-flex justify-content-center align-items-center">
-                        <form action="" method="post">
+                        <a href="../index.php?category=Electronics" method="get">
                             <button type="submit" class="btn btn-outline-light px-2">View Category</button>
-                        </form>
+                        </a>
                     </div>
                 </div>
 
@@ -33,15 +33,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
                         </svg>
                     </div>
-                    <img src="../assets/stationary.png" alt="" class="card-img-top align-self-center" style="width: 70%">
+                    <img src="../assets/Stationary.png" alt="" class="card-img-top align-self-center" style="width: 70%">
                     <div class="card-body text-center border-t border-2 border-secondary ">
                         <h5 class="card-title fs-5 fw-bold">Stationary Tools</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     </div>
                     <div class="card-footer bg-dark d-flex justify-content-center align-items-center">
-                        <form action="" method="post">
+                        <a href="../index.php?category=Stationary" method="get">
                             <button type="submit" class="btn btn-outline-light px-2">View Category</button>
-                        </form>
+                        </a>
                     </div>
                 </div>
 
@@ -52,15 +52,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
                         </svg>
                     </div>
-                    <img src="../assets/clothing.png" alt="" class="card-img-top align-self-center" style="width: 70%">
+                    <img src="../assets/Clothing.png" alt="" class="card-img-top align-self-center" style="width: 70%">
                     <div class="card-body text-center">
                         <h5 class="card-title fs-5 fw-bold">Clothing and Shoes</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     </div>
                     <div class="card-footer bg-dark d-flex justify-content-center align-items-center">
-                        <form action="" method="post">
+                        <a href="../index.php?category=Clothing" method="get">
                             <button type="submit" class="btn btn-outline-light px-2">View Category</button>
-                        </form>
+                        </a>
                     </div>
                 </div>
 
@@ -71,15 +71,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
                         </svg>
                     </div>
-                    <img src="../assets/games.png" alt="" class="card-img-top align-self-center" style="width: 70%">
+                    <img src="../assets/Games.png" alt="" class="card-img-top align-self-center" style="width: 70%">
                     <div class="card-body text-center">
                         <h5 class="card-title fs-5 fw-bold">Video Games and Consoles</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     </div>
                     <div class="card-footer bg-dark d-flex justify-content-center align-items-center">
-                        <form action="" method="post">
+                        <a href="../index.php?category=Games" method="get">
                             <button type="submit" class="btn btn-outline-light px-2">View Category</button>
-                        </form>
+                        </a>
                     </div>
                 </div>
 
@@ -90,15 +90,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
                         </svg>
                     </div>
-                    <img src="../assets/furniture.png" alt="" class="card-img-top align-self-center" style="width: 70%">
+                    <img src="../assets/Furniture.png" alt="" class="card-img-top align-self-center" style="width: 70%">
                     <div class="card-body text-center">
                         <h5 class="card-title fs-5 fw-bold">Furniture and Accessories</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     </div>
                     <div class="card-footer bg-dark d-flex justify-content-center align-items-center">
-                        <form action="" method="post">
+                        <a href="../index.php?category=Furniture" method="get">
                             <button type="submit" class="btn btn-outline-light px-2">View Category</button>
-                        </form>
+                        </a>
                     </div>
                 </div>
 
@@ -109,15 +109,15 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
                         </svg>
                     </div>
-                    <img src="../assets/tools.png" alt="" class="card-img-top align-self-center" style="width: 70%">
+                    <img src="../assets/Tools.png" alt="" class="card-img-top align-self-center" style="width: 70%">
                     <div class="card-body text-center">
                         <h5 class="card-title fs-5 fw-bold">Tools and Equipment</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     </div>
                     <div class="card-footer bg-dark d-flex justify-content-center align-items-center">
-                        <form action="" method="post">
+                        <a href="../index.php?category=Tools" method="get">
                             <button type="submit" class="btn btn-outline-light px-2">View Category</button>
-                        </form>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -8,7 +8,8 @@ class User
     private $email;
     private $pkey;
     private $is_admin;
-    public $user_error;
+
+    public $errorMsg;
 
     public function __construct()
     {
@@ -16,8 +17,15 @@ class User
         $this->last_name = '';
         $this->email = '';
         $this->pkey = '';
-        $this->is_admin = '';
-        $this->user_error = array();
+        $this->is_admin = false;
+
+        $this->errorMsg = array(
+            'first_name' => '',
+            'last_name' => '',
+            'email' => '',
+            'pkey' => '',
+            'login_error' => ''
+        );
     }
 
     public function getUserID()
@@ -73,5 +81,10 @@ class User
     public function isAdmin()
     {
         return $this->is_admin;
+    }
+
+    public function setIsAdmin($is_admin)
+    {
+        $this->is_admin = $is_admin;
     }
 }

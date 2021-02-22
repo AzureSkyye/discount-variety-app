@@ -17,7 +17,7 @@
 
     <!-- Products Section -->
     <section id="products" class="sections r">
-        <div class="container" data-bs-spy="scroll" data-bs-target="#side-nav">
+        <div class="container-fluid" data-bs-spy="scroll" data-bs-target="#side-nav">
             <div class="row d-flex justify-content-center">
                 <div class="col-8">
 
@@ -26,42 +26,37 @@
                         <div class="mt-2">
                             <h5><span class="px-2 bg-dark text-light rounded">Electronics</span></h5>
                         </div>
-                        <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/devices.png" alt="" class="item" style="width: 210px; height: 210px;">
-                            <div class="d-flex flex-column justify-content-center px-4">
-                                <h3 class="title">Helios Predator 300</h3>
-                                <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <p class="m-0 text-success">In Stock</p>
-                                        <p class="m-0 text-danger">Price: $3000</p>
+                        <?php foreach ($productStore as $row) { ?>
+                            <?php if ($row['category'] == "Electronics") { ?>
+                                <?php $count += 1; ?>
+                                <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
+                                    <img src="../assets/Electronics.png" alt="" class="item" style="max-width: 210px; max-height: 210px;">
+                                    <div class="d-flex flex-column justify-content-center px-4">
+                                        <h3 class="title"><?php echo $row['product_name'] ?></h3>
+                                        <p class="desc"><?php echo $row['product_desc'] ?></p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <p class="m-0 text-danger">
+                                                    <?php echo $row['stock'] > 15 ? "In Stock: {$row['stock']}" : "Only {$row['stock']} Left in Stock"; ?>
+                                                </p>
+                                                <p class="m-0 text-success">$<?php echo $row['price'] ?></p>
+                                            </div>
+                                            <a href="../index.php?id=<?php echo $row['product_id']; ?>">
+                                                <button class="btn btn-outline-dark">See Item</button>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <form action="">
-                                        <button class="btn btn-outline-dark">See Item</button>
-                                    </form>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/devices.png" alt="" class="item" style="width: 210px; height: 210px;">
-                            <div class="d-flex flex-column justify-content-center px-4">
-                                <h3 class="title">Triton Predator 300</h3>
-                                <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <p class="m-0 text-success">In Stock</p>
-                                        <p class="m-0 text-danger">Price: $3000</p>
-                                    </div>
-                                    <form action="">
-                                        <button class="btn btn-outline-dark">See Item</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+
+                                <?php if ($count == 2) {
+                                    break;
+                                } ?>
+                            <?php } ?>
+                        <?php } ?>
                         <div class="mx-2 my-4 px d-flex justify-content-end">
-                            <form action="" class="px-2">
+                            <a href="" class="px-2">
                                 <button class="btn btn-dark">View More</button>
-                            </form>
+                            </a>
                         </div>
                     </section>
                     <hr>
@@ -71,42 +66,36 @@
                         <div class="mt-2">
                             <h5><span class="px-2 bg-dark text-light rounded">Stationary</span></h5>
                         </div>
-                        <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/stationary.png" alt="" class="item" style="width: 210px; height: 210px;">
-                            <div class="d-flex flex-column justify-content-center px-4">
-                                <h3 class="title">Arteza Paint Brushes</h3>
-                                <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <p class="m-0 text-success">In Stock</p>
-                                        <p class="m-0 text-danger">Price: $3000</p>
+                        <?php foreach ($productStore as $row) { ?>
+                            <?php if ($row['category'] == "Stationary") { ?>
+                                <?php $count += 1; ?>
+                                <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
+                                    <img src="../assets/Stationary.png" alt="" class="item" style="max-width: 210px; max-height: 210px;">
+                                    <div class="d-flex flex-column justify-content-center px-4">
+                                        <h3 class="title"><?php echo $row['product_name'] ?></h3>
+                                        <p class="desc"><?php echo $row['product_desc'] ?></p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <p class="m-0 text-danger">
+                                                    <?php echo $row['stock'] > 15 ? "In Stock: {$row['stock']}" : "Only {$row['stock']} Left in Stock"; ?>
+                                                </p>
+                                                <p class="m-0 text-success">$<?php echo $row['price'] ?></p>
+                                            </div>
+                                            <a href="../index.php?id=<?php echo $row['product_id']; ?>">
+                                                <button class="btn btn-outline-dark">See Item</button>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <form action="">
-                                        <button class="btn btn-outline-dark">See Item</button>
-                                    </form>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/stationary.png" alt="" class="item" style="width: 210px; height: 210px;">
-                            <div class="d-flex flex-column justify-content-center px-4">
-                                <h3 class="title">Arteza Acrylic Paint Set</h3>
-                                <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <p class="m-0 text-success">In Stock</p>
-                                        <p class="m-0 text-danger">Price: $3000</p>
-                                    </div>
-                                    <form action="">
-                                        <button class="btn btn-outline-dark">See Item</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                                <?php if ($count == 2) {
+                                    break;
+                                } ?>
+                            <?php } ?>
+                        <?php } ?>
                         <div class="mx-2 my-4 px d-flex justify-content-end">
-                            <form action="" class="px-2">
+                            <a href="" class="px-2">
                                 <button class="btn btn-dark">View More</button>
-                            </form>
+                            </a>
                         </div>
                     </section>
                     <hr>
@@ -116,42 +105,37 @@
                         <div class="mt-2">
                             <h5><span class="px-2 bg-dark text-light rounded">Clothing</span></h5>
                         </div>
-                        <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/clothing.png" alt="" class="item" style="width: 210px; height: 210px;">
-                            <div class="d-flex flex-column justify-content-center px-4">
-                                <h3 class="title">Polo Shirts</h3>
-                                <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <p class="m-0 text-success">In Stock</p>
-                                        <p class="m-0 text-danger">Price: $3000</p>
+                        <?php foreach ($productStore as $row) { ?>
+                            <?php if ($row['category'] == "Clothing") { ?>
+                                <?php $count += 1; ?>
+                                <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
+                                    <img src="../assets/Clothing.png" alt="" class="item" style="max-width: 210px; max-height: 210px;">
+                                    <div class="d-flex flex-column justify-content-center px-4">
+                                        <h3 class="title"><?php echo $row['product_name'] ?></h3>
+                                        <p class="desc"><?php echo $row['product_desc'] ?></p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <p class="m-0 text-danger">
+                                                    <?php echo $row['stock'] > 15 ? "In Stock: {$row['stock']}" : "Only {$row['stock']} Left in Stock"; ?>
+                                                </p>
+                                                <p class="m-0 text-success">$<?php echo $row['price'] ?></p>
+                                            </div>
+                                            <a href="../index.php?id=<?php echo $row['product_id']; ?>">
+                                                <button class="btn btn-outline-dark">See Item</button>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <form action="">
-                                        <button class="btn btn-outline-dark">See Item</button>
-                                    </form>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/clothing.png" alt="" class="item" style="width: 210px; height: 210px;">
-                            <div class="d-flex flex-column justify-content-center px-4">
-                                <h3 class="title">Under Armor Shoes</h3>
-                                <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <p class="m-0 text-success">In Stock</p>
-                                        <p class="m-0 text-danger">Price: $3000</p>
-                                    </div>
-                                    <form action="">
-                                        <button class="btn btn-outline-dark">See Item</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+
+                                <?php if ($count == 2) {
+                                    break;
+                                } ?>
+                            <?php } ?>
+                        <?php } ?>
                         <div class="mx-2 my-4 px d-flex justify-content-end">
-                            <form action="" class="px-2">
+                            <a href="" class="px-2">
                                 <button class="btn btn-dark">View More</button>
-                            </form>
+                            </a>
                         </div>
                     </section>
                     <hr>
@@ -161,42 +145,36 @@
                         <div class="mt-2">
                             <h5><span class="px-2 bg-dark text-light rounded">Games and Consoles</span></h5>
                         </div>
-                        <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/games.png" alt="" class="item" style="width: 210px; height: 210px;">
-                            <div class="d-flex flex-column justify-content-center px-4">
-                                <h3 class="title">PS5 Pro 512GB</h3>
-                                <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <p class="m-0 text-success">In Stock</p>
-                                        <p class="m-0 text-danger">Price: $3000</p>
+                        <?php foreach ($productStore as $row) { ?>
+                            <?php if ($row['category'] == "Games") { ?>
+                                <?php $count += 1; ?>
+                                <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
+                                    <img src="../assets/Games.png" alt="" class="item" style="max-width: 210px; max-height: 210px;">
+                                    <div class="d-flex flex-column justify-content-center px-4">
+                                        <h3 class="title"><?php echo $row['product_name'] ?></h3>
+                                        <p class="desc"><?php echo $row['product_desc'] ?></p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <p class="m-0 text-danger">
+                                                    <?php echo $row['stock'] > 15 ? "In Stock: {$row['stock']}" : "Only {$row['stock']} Left in Stock"; ?>
+                                                </p>
+                                                <p class="m-0 text-success">$<?php echo $row['price'] ?></p>
+                                            </div>
+                                            <a href="../index.php?id=<?php echo $row['product_id']; ?>">
+                                                <button class="btn btn-outline-dark">See Item</button>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <form action="">
-                                        <button class="btn btn-outline-dark">See Item</button>
-                                    </form>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/games.png" alt="" class="item" style="width: 210px; height: 210px;">
-                            <div class="d-flex flex-column justify-content-center px-4">
-                                <h3 class="title">Legend of Zelda: Breath of the Wild</h3>
-                                <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <p class="m-0 text-success">In Stock</p>
-                                        <p class="m-0 text-danger">Price: $3000</p>
-                                    </div>
-                                    <form action="">
-                                        <button class="btn btn-outline-dark">See Item</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                                <?php if ($count == 2) {
+                                    break;
+                                } ?>
+                            <?php } ?>
+                        <?php } ?>
                         <div class="mx-2 my-4 px d-flex justify-content-end">
-                            <form action="" class="px-2">
+                            <a href="" class="px-2">
                                 <button class="btn btn-dark">View More</button>
-                            </form>
+                            </a>
                         </div>
                     </section>
                     <hr>
@@ -206,42 +184,36 @@
                         <div class="mt-2">
                             <h5><span class="px-2 bg-dark text-light rounded">Furniture and Accessories</span></h5>
                         </div>
-                        <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/furniture.png" alt="" class="item" style="width: 210px; height: 210px;">
-                            <div class="d-flex flex-column justify-content-center px-4">
-                                <h3 class="title">Xtech Office Desk</h3>
-                                <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <p class="m-0 text-success">In Stock</p>
-                                        <p class="m-0 text-danger">Price: $3000</p>
+                        <?php foreach ($productStore as $row) { ?>
+                            <?php if ($row['category'] == "Furniture") { ?>
+                                <?php $count += 1; ?>
+                                <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
+                                    <img src="../assets/Furniture.png" alt="" class="item" style="max-width: 210px; max-height: 210px;">
+                                    <div class="d-flex flex-column justify-content-center px-4">
+                                        <h3 class="title"><?php echo $row['product_name'] ?></h3>
+                                        <p class="desc"><?php echo $row['product_desc'] ?></p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <p class="m-0 text-danger">
+                                                    <?php echo $row['stock'] > 15 ? "In Stock: {$row['stock']}" : "Only {$row['stock']} Left in Stock"; ?>
+                                                </p>
+                                                <p class="m-0 text-success">$<?php echo $row['price'] ?></p>
+                                            </div>
+                                            <a href="../index.php?id=<?php echo $row['product_id']; ?>">
+                                                <button class="btn btn-outline-dark">See Item</button>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <form action="">
-                                        <button class="btn btn-outline-dark">See Item</button>
-                                    </form>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/furniture.png" alt="" class="item" style="width: 210px; height: 210px;">
-                            <div class="d-flex flex-column justify-content-center px-4">
-                                <h3 class="title">Serta Comfort Mattress</h3>
-                                <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <p class="m-0 text-success">In Stock</p>
-                                        <p class="m-0 text-danger">Price: $3000</p>
-                                    </div>
-                                    <form action="">
-                                        <button class="btn btn-outline-dark">See Item</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                                <?php if ($count == 2) {
+                                    break;
+                                } ?>
+                            <?php } ?>
+                        <?php } ?>
                         <div class="mx-2 my-4 px d-flex justify-content-end">
-                            <form action="" class="px-2">
+                            <a href="" class="px-2">
                                 <button class="btn btn-dark">View More</button>
-                            </form>
+                            </a>
                         </div>
                     </section>
                     <hr>
@@ -251,42 +223,36 @@
                         <div class="mt-2">
                             <h5><span class="px-2 bg-dark text-light rounded">Tools and Equipment</span></h5>
                         </div>
-                        <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/tools.png" alt="" class="item" style="width: 210px; height: 210px;">
-                            <div class="d-flex flex-column justify-content-center px-4">
-                                <h3 class="title">Wahl Bits Toolkit</h3>
-                                <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <p class="m-0 text-success">In Stock</p>
-                                        <p class="m-0 text-danger">Price: $3000</p>
+                        <?php foreach ($productStore as $row) { ?>
+                            <?php if ($row['category'] == "Tools") { ?>
+                                <?php $count += 1; ?>
+                                <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
+                                    <img src="../assets/Tools.png" alt="" class="item" style="max-width: 210px; max-height: 210px;">
+                                    <div class="d-flex flex-column justify-content-center px-4">
+                                        <h3 class="title"><?php echo $row['product_name'] ?></h3>
+                                        <p class="desc"><?php echo $row['product_desc'] ?></p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <p class="m-0 text-danger">
+                                                    <?php echo $row['stock'] > 15 ? "In Stock: {$row['stock']}" : "Only {$row['stock']} Left in Stock"; ?>
+                                                </p>
+                                                <p class="m-0 text-success">$<?php echo $row['price'] ?></p>
+                                            </div>
+                                            <a href="../index.php?id=<?php echo $row['product_id']; ?>">
+                                                <button class="btn btn-outline-dark">See Item</button>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <form action="">
-                                        <button class="btn btn-outline-dark">See Item</button>
-                                    </form>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
-                            <img src="../assets/tools.png" alt="" class="item" style="width: 210px; height: 210px;">
-                            <div class="d-flex flex-column justify-content-center px-4">
-                                <h3 class="title">Cat Constrution Set</h3>
-                                <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit culpa iure, mollitia explicabo cumque omnis. Voluptatem harum eius neque deserunt quam minima dolorum, numquam corrupti esse? Odit, molestiae perferendis.</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <p class="m-0 text-success">In Stock</p>
-                                        <p class="m-0 text-danger">Price: $3000</p>
-                                    </div>
-                                    <form action="">
-                                        <button class="btn btn-outline-dark">See Item</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                                <?php if ($count == 2) {
+                                    break;
+                                } ?>
+                            <?php } ?>
+                        <?php } ?>
                         <div class="mx-2 my-4 px d-flex justify-content-end">
-                            <form action="" class="px-2">
+                            <a href="" class="px-2">
                                 <button class="btn btn-dark">View More</button>
-                            </form>
+                            </a>
                         </div>
                     </section>
                 </div>

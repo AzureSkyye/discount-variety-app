@@ -4,11 +4,12 @@ class Product
 {
     private $product_id;
     private $product_name;
+    private $product_desc;
     private $category;
     private $price;
     private $stock;
 
-    public $product_error;
+    public $errorMsg;
 
     public function __construct()
     {
@@ -16,12 +17,24 @@ class Product
         $this->category = '';
         $this->price = '';
         $this->stock = '';
-        $this->product_error = array();
+
+        $this->errorMsg = array(
+            'product_name' => '',
+            'product_desc' => '',
+            'category' => '',
+            'price' => '',
+            'stock' => ''
+        );
     }
 
     public function getProductID()
     {
         return $this->product_id;
+    }
+
+    public function setProductID($product_id)
+    {
+        $this->product_id = $product_id;
     }
 
     public function getProductName()
@@ -32,6 +45,16 @@ class Product
     public function setProductName($product_name)
     {
         $this->product_name = $product_name;
+    }
+
+    public function getProductDesc()
+    {
+        return $this->product_desc;
+    }
+
+    public function setProductDesc($product_desc)
+    {
+        $this->product_desc = $product_desc;
     }
 
     public function getCategory()
@@ -59,8 +82,8 @@ class Product
         return $this->stock;
     }
 
-    public function setStock()
+    public function setStock($stock)
     {
-        return $this->stock;
+        $this->stock = $stock;
     }
 }

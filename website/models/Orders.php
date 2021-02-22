@@ -8,13 +8,17 @@ class Orders
     private $quantity;
     private $cost;
 
-    public $purchase_error;
+    public $errorMsg;
 
     public function __construct()
     {
         $this->purchased_item = '';
         $this->quantity = '';
-        $this->purchase_error = array();
+
+        $this->errorMsg = array(
+            'quantity' => '',
+            'cost' => ''
+        );
     }
 
     public function getOrderID()
