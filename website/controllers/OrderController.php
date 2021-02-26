@@ -71,7 +71,6 @@ class OrderController
                     if ($orderObj->getQuantity() > $_POST['stock']) {
                         $orderObj->errorMsg['quantity'] = "Quantity exceeds items in stock";
                     }
-
                     if ($orderObj->getQuantity() <= 0) {
                         $orderObj->errorMsg['quantity'] = "Quantity must be at least 1";
                     }
@@ -111,7 +110,11 @@ class OrderController
                     $orderObj->getShippingAddress(),
                     $orderObj->getQuantity()
                 );
-                header("Location: views/my.php");
+
+                // Initialize Order object
+                $orderArr = $this->orderModel->readUserHistory($_POST['user_id']);
+                $_SESSION['orderObj'] = serialize($orderArr);
+                header('Location: views/my.php');
             }
         } catch (Exception $e) {
             throw $e;
