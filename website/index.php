@@ -20,12 +20,14 @@ try {
                 $userController->userSignup();
                 break;
             case "login":
+                $productController->inventoryStore();
                 $userController->userLogin();
                 break;
             case "logout":
                 $userController->userLogout();
                 break;
             case "guest":
+                $productController->inventoryStore();
                 $userController->guestLogin();
                 break;
             case "delete":
@@ -87,6 +89,7 @@ try {
     // Order handler
     if (isset($_REQUEST['order'])) {
         $orderController->placeOrder();
+        $productController->inventoryStore();
     } else if (isset($_REQUEST['my_id'])) {
         $orderController->redirect();
     }

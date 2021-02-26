@@ -10,13 +10,13 @@
                     <a class="nav-link" aria-current="page" href="../home.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#products">Products</a>
+                    <a class="nav-link" href="../home.php?#products">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#contact" tabindex="-1">Contact</a>
                 </li>
                 <form action="../../index.php?product=admin_search" method="post" class="d-flex">
-                    <input name="searchTerm" class="form-control mx-2" type="search" placeholder="Search Inventory" aria-label="Search">
+                    <input name="searchTerm" class="form-control mx-2 p-0" type="search" placeholder="Search Inventory" aria-label="Search">
                     <button name="admin_search" class="btn btn-outline-light" type="submit">Search</button>
                 </form>
             </ul>

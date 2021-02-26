@@ -22,7 +22,7 @@
     <div class="table-wrapper d-grid justify-content-center align-items-center">
         <div class="text-center">
             <h1 class="text-danger">ERROR 401</h1>
-            <h3><span class="text-danger">Warning: </span> are not authorized to view this page</h3>
+            <h3><span class="text-danger">Warning: </span>You are not authorized to view this page</h3>
             <h6>You lack the permissions with your current credentials</h6>
             <a href="../home.php"><button class="mt-2 btn btn-outline-danger">Go Back</button></a>
         </div>

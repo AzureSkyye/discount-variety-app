@@ -199,6 +199,7 @@ class UserController
     {
         try {
             $guestUser = new User();
+            $guestUser->setIsAdmin('false');
             $_SESSION['userObj'] = serialize($guestUser);
             header("Location: views/home.php");
         } catch (Exception $e) {

@@ -10,7 +10,6 @@ class ProductController
     public function __construct()
     {
         $this->productModel = new ProductModel();
-        $this->inventoryStore();
     }
 
     public function validateProductFields($product)
