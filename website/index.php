@@ -86,10 +86,7 @@ try {
 
     // Order handler
     if (isset($_REQUEST['order'])) {
-        switch ($_REQUEST['order']) {
-            case "confirm":
-                $orderController->placeOrder();
-        }
+        $orderController->placeOrder();
     } else if (isset($_REQUEST['my_id'])) {
         $orderController->redirect();
     }

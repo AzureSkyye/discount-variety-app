@@ -20,7 +20,7 @@ if ($userObj->isAdmin() == 'false') {
 // Product Objects
 $productObj = isset($_SESSION['productObj']) ? unserialize($_SESSION['productObj']) : new Product();
 $productStore = isset($_SESSION['productStore']) ? unserialize($_SESSION['productStore']) : NULL;
-$searchStore = isset($_SESSION['searchStore']) ? unserialize($_SESSION['searchStore']) : NULL;
+$inventoryStore = isset($_SESSION['inventory_store']) ? unserialize($_SESSION['inventory_store']) : NULL;
 
 $sum = 0;
 ?>

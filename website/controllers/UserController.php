@@ -120,8 +120,14 @@ class UserController
                         $newUser->getPkey(),
                     );
 
+                    // Set as not admin
+                    $newUser->setIsAdmin("false");
                     $_SESSION['userObj'] = serialize($newUser);
-                    header('Location: views/home.php');
+                    if (isset($_POST['goto'])) {
+                        header("Location: views/product.php?item={$_POST['goto']}");
+                    } else {
+                        header('Location: views/home.php');
+                    }
                 }
             }
         } catch (Exception $e) {
@@ -193,7 +199,6 @@ class UserController
     {
         try {
             $guestUser = new User();
-            $guestUser->setFirstName("Guest");
             $_SESSION['userObj'] = serialize($guestUser);
             header("Location: views/home.php");
         } catch (Exception $e) {

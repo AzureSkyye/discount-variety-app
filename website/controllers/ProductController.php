@@ -109,6 +109,7 @@ class ProductController
                     );
                     // Update inventory store
                     $this->inventoryStore();
+                    unset($_SESSION['productObj']);
                     header('Location: views/admin/inventory.php');
                 }
             }
@@ -204,6 +205,7 @@ class ProductController
                     );
                     // Update inventory store
                     $this->inventoryStore();
+                    unset($_SESSION['productObj']);
                     header('Location: views/admin/inventory.php');
                 }
             }
@@ -264,9 +266,9 @@ class ProductController
         try {
             if (isset($_POST['admin_search'])) {
                 $productArr = $this->productModel->search($_POST['searchTerm']);
-                $_SESSION['searchStore'] = serialize($productArr);
+                $_SESSION['inventory_store'] = serialize($productArr);
                 print_r($productArr);
-                // header("Location: views/admin/inventory.php?result={$_POST['searchTerm']}");
+                header("Location: views/admin/results.php?result={$_POST['searchTerm']}");
             }
         } catch (Exception $e) {
             throw $e;

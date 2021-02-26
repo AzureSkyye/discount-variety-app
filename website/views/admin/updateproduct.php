@@ -6,13 +6,13 @@
     <form class="container first forms d-grid justify-content-center align-items-center" action="../../index.php?product=update" method="post">
         <input type="hidden" name="product_id" value="<?php echo $productObj->getProductID(); ?>">
         <div class="container justify-content-center align-items-center p-4">
-            <div class="d-flex justify-content-between">
-                <h3 class="">Update Product</h3>
+            <div class="d-flex justify-content-end">
+                <h3 class="me-4">Update Product</h3>
                 <div class="">
                     <button name="update" class="btn btn-outline-dark rounded">Update</button>
                 </div>
             </div>
-            <div class="my-4 d-flex justify-content-around">
+            <div class="my-4 d-flex justify-content-between">
                 <label class="me-4 my-2 form-label fw-bold">Product Name</label>
                 <input name="product_name" type="text" class="field px-2 m-0 p-0 rounded border border-secondary" value="<?php echo $productObj->getProductName(); ?>">
             </div>
@@ -51,7 +51,7 @@
             </div>
             <div class="my-4 d-flex flex-column justify-content-center align-items-end">
                 <label class="form-label fw-bold">Product Description</label>
-                <textarea name="product_desc" type="textarea" class="field px-2 p-2 rounded border border-secondary" cols="30" rows="3"><?php echo $productObj->getProductDesc(); ?></textarea>
+                <textarea name="product_desc" type="textarea" class="field px-2 p-2 rounded border border-secondary" cols="30" rows="3"><?php echo trim($productObj->getProductDesc()); ?></textarea>
             </div>
         </div>
     </form>

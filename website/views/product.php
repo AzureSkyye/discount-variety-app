@@ -33,9 +33,16 @@
                                 </p>
                             </div>
 
-                            <div>
-                                <a <?php echo $userObj->isAdmin() == 'false' ? "href=\"order.php\"" : "aria-disabled=\"\"" ?> class="btn btn-dark">Order Item</a>
-                            </div>
+                            <?php
+                            if (empty($userObj->getEmail()) || $userObj->getEmail() == '') { ?>
+                                <div>
+                                    <a class="nav-link" href="signup.php?item=<?php echo $productObj->getProductID(); ?>">Signup First to Order</a>
+                                </div>
+                            <?php } else { ?>
+                                <div>
+                                    <a <?php echo $userObj->isAdmin() == 'false' ? "href=\"order.php\"" : "aria-disabled=\"\"" ?> class="btn btn-dark">Order Item</a>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

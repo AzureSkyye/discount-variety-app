@@ -26,7 +26,7 @@
         <?php } else { ?>
             <div class="row d-flex justify-content-start align-items-center mt-3 border">
                 <div class="col-12 mt-4">
-                    <h6 class=""><span class="py-1 px-2 rounded"><?php echo sizeof($searchStore) ?> results returned</span></h6>
+                    <h6 class=""><span class="py-1 px-2 rounded">Results returned: <?php echo sizeof($searchStore) ?></span></h6>
                     <hr>
                 </div>
                 <?php foreach ($searchStore as $row) { ?>

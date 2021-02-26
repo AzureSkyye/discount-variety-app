@@ -19,6 +19,8 @@ class Product
         $this->category = '';
         $this->price = '';
         $this->stock = '';
+        $this->total_purchased = '';
+        $this->total_sold = '';
 
         $this->errorMsg = array(
             'product_name' => '',

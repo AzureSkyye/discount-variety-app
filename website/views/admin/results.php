@@ -5,10 +5,11 @@
 
     <section class="d-flex table-wrapper justify-content-center mt-4 px-4">
         <div class="container-fluid px-4">
-            <div class="my-4 text-end">
+            <div class="mt-4 mb-0 d-flex justify-content-between">
+                <h6>Results returned: <?php echo sizeof($inventoryStore); ?></h6>
                 <h5>Inventory Items</h5>
-                <hr class="m-0">
             </div>
+            <hr class="mt-0">
             <table class="table border shadow-sm">
                 <thead class="bg-secondary text-white text-center">
                     <tr class="align-middle">
@@ -24,7 +25,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($productStore as $row) { ?>
+                    <?php foreach ($inventoryStore as $row) { ?>
                         <tr class="align-middle">
                             <th class="bg-secondary text-white" scope="row"><?php echo $row['product_id']; ?></th>
                             <td class="border-2 m-2"><?php echo $row['product_name']; ?></td>

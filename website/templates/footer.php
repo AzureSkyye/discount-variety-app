@@ -3,10 +3,10 @@
         <div class="d-flex justify-content-around p-4">
             <div class=" foot border-start border-2 border-secondary">
                 <h5 class="ms-lg-4 mb-3 text-light fw-bold">Contact</h5>
+                <p class="text-secondary ms-lg-4"><a class="nav-link m-0 p-0 text-secondary" href="https://bit.ly/3pMIj74">Email: discount.variety@email.com</a></p>
+                <p class="text-secondary ms-lg-4"><a class="nav-link m-0 p-0 text-secondary" href="https://bit.ly/3pMIj74">Phone: 222-2222</a></p>
                 <p class="text-secondary ms-lg-4"><a class="nav-link m-0 p-0 text-secondary" href="https://bit.ly/3pMIj74">Facebook</a></p>
-                <p class="text-secondary ms-lg-4"><a class="nav-link m-0 p-0 text-secondary" href="https://bit.ly/3pMIj74">Twitter</a></p>
                 <p class="text-secondary ms-lg-4"><a class="nav-link m-0 p-0 text-secondary" href="https://bit.ly/3pMIj74">Instagram</a></p>
-                <p class="text-secondary ms-lg-4"><a class="nav-link m-0 p-0 text-secondary" href="https://bit.ly/3pMIj74">YouTube</a></p>
 
             </div>
             <div class="foot border-start border-2 border-secondary">
