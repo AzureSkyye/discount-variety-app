@@ -71,6 +71,10 @@ class OrderController
                     if ($orderObj->getQuantity() > $_POST['stock']) {
                         $orderObj->errorMsg['quantity'] = "Quantity exceeds items in stock";
                     }
+
+                    if ($orderObj->getQuantity() <= 0) {
+                        $orderObj->errorMsg['quantity'] = "Quantity must be at least 1";
+                    }
                 }
             }
         } catch (Exception $e) {
