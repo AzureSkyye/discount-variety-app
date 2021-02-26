@@ -4,7 +4,7 @@ require_once('models/DatabaseModel.php');
 
 class ProductModel extends Database
 {
-    public function create($product_name, $category, $stock, $price, $product_desc)
+    public function create($product_name, $category, $stock, $price, $product_desc, $total_purchased)
     {
         try {
             $conn = $this->connect_db();
@@ -20,14 +20,15 @@ class ProductModel extends Database
             $price = mysqli_real_escape_string($conn, $price);
             $product_desc = mysqli_real_escape_string($conn, $product_desc);
 
-            $sql = $conn->prepare("INSERT INTO products(product_name, category, stock, price, product_desc) VALUES(?, ?, ?, ?, ?)");
+            $sql = $conn->prepare("INSERT INTO products(product_name, category, stock, price, product_desc, total_purchased) VALUES(?, ?, ?, ?, ?, ?)");
             $sql->bind_param(
-                'ssiis',
+                'ssiisi',
                 $product_name,
                 $category,
                 $stock,
                 $price,
-                $product_desc
+                $product_desc,
+                $total_purchased
             );
             $sql->execute();
             $sql->close();
@@ -56,7 +57,7 @@ class ProductModel extends Database
         }
     }
 
-    public function update($product_name, $category, $price, $stock, $product_desc, $productID)
+    public function update($product_name, $category, $stock, $price, $product_desc, $total_purchased, $productID)
     {
         try {
             $conn = $this->connect_db();
@@ -68,15 +69,16 @@ class ProductModel extends Database
             $price = mysqli_real_escape_string($conn, $price);
             $product_desc = mysqli_real_escape_string($conn, $product_desc);
 
-            $sql = $conn->prepare("UPDATE products SET product_name = ?, category = ?, stock = ?, price = ?, product_desc = ? WHERE product_id = ?");
+            $sql = $conn->prepare("UPDATE products SET product_name = ?, category = ?, stock = ?, price = ?, product_desc = ?, total_purchased = ? WHERE product_id = ?");
             $sql->bind_param(
-                'ssiisi',
+                'ssiisii',
                 $product_name,
                 $category,
                 $stock,
                 $price,
                 $product_desc,
-                $productID
+                $total_purchased,
+                $productID,
             );
             $sql->execute();
             $sql->close();
@@ -121,6 +123,21 @@ class ProductModel extends Database
             $conn = $this->connect_db();
             $sql = $conn->prepare("SELECT * FROM products WHERE category = ?");
             $sql->bind_param('s', $category);
+            $sql->execute();
+            $result = $sql->get_result();
+            $sql->close();
+            return mysqli_fetch_all($result, MYSQLI_ASSOC);
+        } catch (Exception $e) {
+            throw $e;
+        }
+    }
+
+    public function search($searchTerm)
+    {
+        try {
+            $conn = $this->connect_db();
+            $sql = $conn->prepare("SELECT * FROM products WHERE INSTR(product_name, ?) OR INSTR(category, ?)");
+            $sql->bind_param('ss', $searchTerm, $searchTerm);
             $sql->execute();
             $result = $sql->get_result();
             $sql->close();

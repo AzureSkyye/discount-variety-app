@@ -2,7 +2,6 @@
 
 require('models/UserModel.php');
 require('models/User.php');
-require('ProductController.php');
 require_once('models/DatabaseModel.php');
 
 session_status() === PHP_SESSION_ACTIVE ? TRUE : session_start();
@@ -12,7 +11,6 @@ class UserController
     public function __construct()
     {
         $this->userObj = new UserModel();
-        $this->displayObj = new ProductController();
     }
 
     public function validateSignUpCredentials($newUser)
@@ -86,6 +84,16 @@ class UserController
         }
     }
 
+    public function verifyAccount($userObj)
+    {
+        try {
+            if ($userObj->get) {
+            }
+        } catch (Exception $e) {
+            throw $e;
+        }
+    }
+
     public function userSignup()
     {
         try {
@@ -105,17 +113,13 @@ class UserController
                     $_SESSION['userObj'] = serialize($newUser);
                     header('Location: views/signup.php');
                 } else {
-                    $userProperties = $this->userObj->create(
+                    $this->userObj->create(
                         $newUser->getFirstName(),
                         $newUser->getLastName(),
                         $newUser->getEmail(),
                         $newUser->getPkey(),
                     );
-                    foreach ($userProperties as $row) {
-                        $newUser->setFirstName(trim($row['first_name']));
-                        $newUser->setLastName(trim($row['last_name']));
-                        $newUser->setUserID(trim($row['user_id']));
-                    }
+
                     $_SESSION['userObj'] = serialize($newUser);
                     header('Location: views/home.php');
                 }
@@ -153,11 +157,11 @@ class UserController
                         sha1($registeredUser->getPkey()) == $row['pkey']
                     ) {
                         // Set Inventory Objects
-                        $this->displayObj->inventoryStore();
                         $this->userStore();
                         $registeredUser->setFirstName(trim($row['first_name']));
+                        $registeredUser->setIsAdmin(trim($row['is_admin']));
                         $_SESSION['userObj'] = serialize($registeredUser);
-                        header('Location: views/admin/inventory.php');
+                        header('Location: views/home.php');
                     } else {
                         $userProperties = $this->userObj->validate(
                             $registeredUser->getEmail(),
@@ -168,6 +172,7 @@ class UserController
                                 $registeredUser->setFirstName(trim($row['first_name']));
                                 $registeredUser->setLastName(trim($row['last_name']));
                                 $registeredUser->setUserID(trim($row['user_id']));
+                                $registeredUser->setIsAdmin(trim($row['is_admin']));
                             }
                             $_SESSION['userObj'] = serialize($registeredUser);
                             header('Location: views/home.php');
@@ -186,8 +191,14 @@ class UserController
 
     public function guestLogin()
     {
-        $_SESSION['username'] = "Guest";
-        header("Location: views/home.php");
+        try {
+            $guestUser = new User();
+            $guestUser->setFirstName("Guest");
+            $_SESSION['userObj'] = serialize($guestUser);
+            header("Location: views/home.php");
+        } catch (Exception $e) {
+            throw $e;
+        }
     }
 
     public function userLogout()

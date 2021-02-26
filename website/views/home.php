@@ -24,7 +24,8 @@
                     <!-- Electronic Products -->
                     <section id="electronics" class="pt-4">
                         <div class="mt-2">
-                            <h5><span class="px-2 bg-dark text-light rounded">Electronics</span></h5>
+                            <h6><span class="">Electronics</span></h6>
+                            <hr class="m-0">
                         </div>
                         <?php foreach ($productStore as $row) { ?>
                             <?php if ($row['category'] == "Electronics") { ?>
@@ -32,39 +33,40 @@
                                 <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
                                     <img src="../assets/Electronics.png" alt="" class="item" style="max-width: 210px; max-height: 210px;">
                                     <div class="d-flex flex-column justify-content-center px-4">
-                                        <h3 class="title"><?php echo $row['product_name'] ?></h3>
+                                        <h4 class="title"><?php echo $row['product_name'] ?></h4>
                                         <p class="desc"><?php echo $row['product_desc'] ?></p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div>
                                                 <p class="m-0 text-danger">
-                                                    <?php echo $row['stock'] > 15 ? "In Stock: {$row['stock']}" : "Only {$row['stock']} Left in Stock"; ?>
+                                                    <?php echo $row['stock'] <= 0 ? "Currently Unavailable" : ($row['stock'] > 15 ? "In Stock {$row['stock']}" : "Only {$row['stock']} Left in Stock"); ?>
                                                 </p>
                                                 <p class="m-0 text-success">$<?php echo $row['price'] ?></p>
                                             </div>
-                                            <a href="../index.php?id=<?php echo $row['product_id']; ?>">
+                                            <a href="../index.php?item_id=<?php echo $row['product_id']; ?>">
                                                 <button class="btn btn-outline-dark">See Item</button>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-
-                                <?php if ($count == 2) {
+                                <?php if ($count == 2) { ?>
+                                    <div class="mx-2 my-4 px d-flex justify-content-end">
+                                        <a href="../index.php?category=<?php echo $row['category']; ?>" class="px-2">
+                                            <button class="btn btn-dark">View More</button>
+                                        </a>
+                                    </div>
+                                <?php
+                                    $count = 0;
                                     break;
                                 } ?>
                             <?php } ?>
                         <?php } ?>
-                        <div class="mx-2 my-4 px d-flex justify-content-end">
-                            <a href="" class="px-2">
-                                <button class="btn btn-dark">View More</button>
-                            </a>
-                        </div>
                     </section>
-                    <hr>
 
                     <!-- Stationary Products -->
                     <section id="stationary" class="pt-4">
                         <div class="mt-2">
-                            <h5><span class="px-2 bg-dark text-light rounded">Stationary</span></h5>
+                            <h6><span class="">Stationary</span></h6>
+                            <hr class="m-0">
                         </div>
                         <?php foreach ($productStore as $row) { ?>
                             <?php if ($row['category'] == "Stationary") { ?>
@@ -72,38 +74,40 @@
                                 <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
                                     <img src="../assets/Stationary.png" alt="" class="item" style="max-width: 210px; max-height: 210px;">
                                     <div class="d-flex flex-column justify-content-center px-4">
-                                        <h3 class="title"><?php echo $row['product_name'] ?></h3>
+                                        <h4 class="title"><?php echo $row['product_name'] ?></h4>
                                         <p class="desc"><?php echo $row['product_desc'] ?></p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div>
                                                 <p class="m-0 text-danger">
-                                                    <?php echo $row['stock'] > 15 ? "In Stock: {$row['stock']}" : "Only {$row['stock']} Left in Stock"; ?>
+                                                    <?php echo $row['stock'] <= 0 ? "Currently Unavailable" : ($row['stock'] > 15 ? "In Stock {$row['stock']}" : "Only {$row['stock']} Left in Stock"); ?>
                                                 </p>
                                                 <p class="m-0 text-success">$<?php echo $row['price'] ?></p>
                                             </div>
-                                            <a href="../index.php?id=<?php echo $row['product_id']; ?>">
+                                            <a href="../index.php?item_id=<?php echo $row['product_id']; ?>">
                                                 <button class="btn btn-outline-dark">See Item</button>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <?php if ($count == 2) {
+                                <?php if ($count == 2) { ?>
+                                    <div class="mx-2 my-4 px d-flex justify-content-end">
+                                        <a href="../index.php?category=<?php echo $row['category']; ?>" class="px-2">
+                                            <button class="btn btn-dark">View More</button>
+                                        </a>
+                                    </div>
+                                <?php
+                                    $count = 0;
                                     break;
                                 } ?>
                             <?php } ?>
                         <?php } ?>
-                        <div class="mx-2 my-4 px d-flex justify-content-end">
-                            <a href="" class="px-2">
-                                <button class="btn btn-dark">View More</button>
-                            </a>
-                        </div>
                     </section>
-                    <hr>
 
                     <!-- Clothing Section -->
                     <section id="clothing" class="pt-4">
                         <div class="mt-2">
-                            <h5><span class="px-2 bg-dark text-light rounded">Clothing</span></h5>
+                            <h6><span class="">Clothing</span></h6>
+                            <hr class="m-0">
                         </div>
                         <?php foreach ($productStore as $row) { ?>
                             <?php if ($row['category'] == "Clothing") { ?>
@@ -111,39 +115,40 @@
                                 <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
                                     <img src="../assets/Clothing.png" alt="" class="item" style="max-width: 210px; max-height: 210px;">
                                     <div class="d-flex flex-column justify-content-center px-4">
-                                        <h3 class="title"><?php echo $row['product_name'] ?></h3>
+                                        <h4 class="title"><?php echo $row['product_name'] ?></h4>
                                         <p class="desc"><?php echo $row['product_desc'] ?></p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div>
                                                 <p class="m-0 text-danger">
-                                                    <?php echo $row['stock'] > 15 ? "In Stock: {$row['stock']}" : "Only {$row['stock']} Left in Stock"; ?>
+                                                    <?php echo $row['stock'] <= 0 ? "Currently Unavailable" : ($row['stock'] > 15 ? "In Stock {$row['stock']}" : "Only {$row['stock']} Left in Stock"); ?>
                                                 </p>
                                                 <p class="m-0 text-success">$<?php echo $row['price'] ?></p>
                                             </div>
-                                            <a href="../index.php?id=<?php echo $row['product_id']; ?>">
+                                            <a href="../index.php?item_id=<?php echo $row['product_id']; ?>">
                                                 <button class="btn btn-outline-dark">See Item</button>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-
-                                <?php if ($count == 2) {
+                                <?php if ($count == 2) { ?>
+                                    <div class="mx-2 my-4 px d-flex justify-content-end">
+                                        <a href="../index.php?category=<?php echo $row['category']; ?>" class="px-2">
+                                            <button class="btn btn-dark">View More</button>
+                                        </a>
+                                    </div>
+                                <?php
+                                    $count = 0;
                                     break;
                                 } ?>
                             <?php } ?>
                         <?php } ?>
-                        <div class="mx-2 my-4 px d-flex justify-content-end">
-                            <a href="" class="px-2">
-                                <button class="btn btn-dark">View More</button>
-                            </a>
-                        </div>
                     </section>
-                    <hr>
 
                     <!-- Games and Console Section -->
                     <section id="games" class="pt-4">
                         <div class="mt-2">
-                            <h5><span class="px-2 bg-dark text-light rounded">Games and Consoles</span></h5>
+                            <h6><span class="">Games and Consoles</span></h6>
+                            <hr class="m-0">
                         </div>
                         <?php foreach ($productStore as $row) { ?>
                             <?php if ($row['category'] == "Games") { ?>
@@ -151,38 +156,40 @@
                                 <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
                                     <img src="../assets/Games.png" alt="" class="item" style="max-width: 210px; max-height: 210px;">
                                     <div class="d-flex flex-column justify-content-center px-4">
-                                        <h3 class="title"><?php echo $row['product_name'] ?></h3>
+                                        <h4 class="title"><?php echo $row['product_name'] ?></h4>
                                         <p class="desc"><?php echo $row['product_desc'] ?></p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div>
                                                 <p class="m-0 text-danger">
-                                                    <?php echo $row['stock'] > 15 ? "In Stock: {$row['stock']}" : "Only {$row['stock']} Left in Stock"; ?>
+                                                    <?php echo $row['stock'] <= 0 ? "Currently Unavailable" : ($row['stock'] > 15 ? "In Stock {$row['stock']}" : "Only {$row['stock']} Left in Stock"); ?>
                                                 </p>
                                                 <p class="m-0 text-success">$<?php echo $row['price'] ?></p>
                                             </div>
-                                            <a href="../index.php?id=<?php echo $row['product_id']; ?>">
+                                            <a href="../index.php?item_id=<?php echo $row['product_id']; ?>">
                                                 <button class="btn btn-outline-dark">See Item</button>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <?php if ($count == 2) {
+                                <?php if ($count == 2) { ?>
+                                    <div class="mx-2 my-4 px d-flex justify-content-end">
+                                        <a href="../index.php?category=<?php echo $row['category']; ?>" class="px-2">
+                                            <button class="btn btn-dark">View More</button>
+                                        </a>
+                                    </div>
+                                <?php
+                                    $count = 0;
                                     break;
                                 } ?>
                             <?php } ?>
                         <?php } ?>
-                        <div class="mx-2 my-4 px d-flex justify-content-end">
-                            <a href="" class="px-2">
-                                <button class="btn btn-dark">View More</button>
-                            </a>
-                        </div>
                     </section>
-                    <hr>
 
                     <!-- Furniture -->
                     <section id="furniture" class="pt-4">
                         <div class="mt-2">
-                            <h5><span class="px-2 bg-dark text-light rounded">Furniture and Accessories</span></h5>
+                            <h6><span class="">Furniture and Accessories</span></h6>
+                            <hr class="m-0">
                         </div>
                         <?php foreach ($productStore as $row) { ?>
                             <?php if ($row['category'] == "Furniture") { ?>
@@ -190,38 +197,40 @@
                                 <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
                                     <img src="../assets/Furniture.png" alt="" class="item" style="max-width: 210px; max-height: 210px;">
                                     <div class="d-flex flex-column justify-content-center px-4">
-                                        <h3 class="title"><?php echo $row['product_name'] ?></h3>
+                                        <h4 class="title"><?php echo $row['product_name'] ?></h4>
                                         <p class="desc"><?php echo $row['product_desc'] ?></p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div>
                                                 <p class="m-0 text-danger">
-                                                    <?php echo $row['stock'] > 15 ? "In Stock: {$row['stock']}" : "Only {$row['stock']} Left in Stock"; ?>
+                                                    <?php echo $row['stock'] <= 0 ? "Currently Unavailable" : ($row['stock'] > 15 ? "In Stock {$row['stock']}" : "Only {$row['stock']} Left in Stock"); ?>
                                                 </p>
                                                 <p class="m-0 text-success">$<?php echo $row['price'] ?></p>
                                             </div>
-                                            <a href="../index.php?id=<?php echo $row['product_id']; ?>">
+                                            <a href="../index.php?item_id=<?php echo $row['product_id']; ?>">
                                                 <button class="btn btn-outline-dark">See Item</button>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <?php if ($count == 2) {
+                                <?php if ($count == 2) { ?>
+                                    <div class="mx-2 my-4 px d-flex justify-content-end">
+                                        <a href="../index.php?category=<?php echo $row['category']; ?>" class="px-2">
+                                            <button class="btn btn-dark">View More</button>
+                                        </a>
+                                    </div>
+                                <?php
+                                    $count = 0;
                                     break;
                                 } ?>
                             <?php } ?>
                         <?php } ?>
-                        <div class="mx-2 my-4 px d-flex justify-content-end">
-                            <a href="" class="px-2">
-                                <button class="btn btn-dark">View More</button>
-                            </a>
-                        </div>
                     </section>
-                    <hr>
 
                     <!-- Tools and Equipment -->
                     <section id="tools" class="pt-4">
                         <div class="mt-2">
-                            <h5><span class="px-2 bg-dark text-light rounded">Tools and Equipment</span></h5>
+                            <h6><span class="">Tools and Equipment</span></h6>
+                            <hr class="m-0">
                         </div>
                         <?php foreach ($productStore as $row) { ?>
                             <?php if ($row['category'] == "Tools") { ?>
@@ -229,31 +238,33 @@
                                 <div class="my-4 p-0 d-flex justify-content-center align-items-center rounded shadow">
                                     <img src="../assets/Tools.png" alt="" class="item" style="max-width: 210px; max-height: 210px;">
                                     <div class="d-flex flex-column justify-content-center px-4">
-                                        <h3 class="title"><?php echo $row['product_name'] ?></h3>
+                                        <h4 class="title"><?php echo $row['product_name'] ?></h4>
                                         <p class="desc"><?php echo $row['product_desc'] ?></p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div>
                                                 <p class="m-0 text-danger">
-                                                    <?php echo $row['stock'] > 15 ? "In Stock: {$row['stock']}" : "Only {$row['stock']} Left in Stock"; ?>
+                                                    <?php echo $row['stock'] <= 0 ? "Currently Unavailable" : ($row['stock'] > 15 ? "In Stock {$row['stock']}" : "Only {$row['stock']} Left in Stock"); ?>
                                                 </p>
                                                 <p class="m-0 text-success">$<?php echo $row['price'] ?></p>
                                             </div>
-                                            <a href="../index.php?id=<?php echo $row['product_id']; ?>">
+                                            <a href="../index.php?item_id=<?php echo $row['product_id']; ?>">
                                                 <button class="btn btn-outline-dark">See Item</button>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <?php if ($count == 2) {
+                                <?php if ($count == 2) { ?>
+                                    <div class="mx-2 my-4 px d-flex justify-content-end">
+                                        <a href="../index.php?category=<?php echo $row['category']; ?>" class="px-2">
+                                            <button class="btn btn-dark">View More</button>
+                                        </a>
+                                    </div>
+                                <?php
+                                    $count = 0;
                                     break;
                                 } ?>
                             <?php } ?>
                         <?php } ?>
-                        <div class="mx-2 my-4 px d-flex justify-content-end">
-                            <a href="" class="px-2">
-                                <button class="btn btn-dark">View More</button>
-                            </a>
-                        </div>
                     </section>
                 </div>
 

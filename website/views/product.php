@@ -4,11 +4,11 @@
 
     <?php include('../templates/navbar.php'); ?>
 
-    <section id="purchase" class="container d-flex justify-content-center align-items-center">
+    <section id="Order" class="container d-flex justify-content-center align-items-center">
 
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-12 my-4 d-flex flex-column justify-content-center align-items-center">
-                <h1 class="text-center">Purchase</h1>
+                <h1 class="text-center">Order Item</h1>
                 <a class="nav-link p-0 m-0 text-success" href="../index.php?category=<?php echo $productObj->getCategory(); ?>">
                     More items in <?php echo $productObj->getCategory(); ?>
                 </a>
@@ -24,7 +24,7 @@
                             <div>
                                 <p class="card-text m-0 my-2">
                                     <span class="text-danger">
-                                        <?php echo $productObj->getStock() > 15 ? "In Stock: {$productObj->getStock()}" : "Only {$productObj->getStock()} Left in Stock"; ?>
+                                        <?php echo $productObj->getStock() <= 0 ? "Currently Unavailable" : ($productObj->getStock() > 15 ? "In Stock {$productObj->getStock()}" : "Only {$productObj->getStock()} Left in Stock"); ?>
                                     </span>
                                     <br>
                                     Price: <span class="text-success">
@@ -32,11 +32,11 @@
                                     </span>
                                 </p>
                             </div>
+
                             <div>
-                                <a href="#" class="btn btn-dark">Purchase</a>
+                                <a <?php echo $userObj->isAdmin() == 'false' ? "href=\"order.php\"" : "aria-disabled=\"\"" ?> class="btn btn-dark">Order Item</a>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

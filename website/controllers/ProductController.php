@@ -50,6 +50,18 @@ class ProductController
                 }
             }
 
+            if (empty($_POST['total_purchased'])) {
+                $product->errorMsg['total_purchased'] = "Field cannot be empty";
+            } else {
+
+                try {
+                    $product->setTotalPurchased(intval($_POST['total_purchased']));
+                } catch (Exception $e) {
+                    $product->errorMsg['total_purchased'] = "Enter a valid number";
+                    throw $e;
+                }
+            }
+
             if (empty($_POST['price'])) {
                 $product->errorMsg['price'] = "Field cannot be empty";
             } else {
@@ -92,6 +104,7 @@ class ProductController
                         $product->getStock(),
                         $product->getPrice(),
                         $product->getProductDesc(),
+                        $product->getTotalPurchased(),
                         $product->getProductID()
                     );
                     // Update inventory store
@@ -128,6 +141,12 @@ class ProductController
         }
     }
 
+    public function redirect()
+    {
+        $this->inventoryStore();
+        header('Location: views/admin/inventory.php');
+    }
+
     public function editProduct()
     {
         try {
@@ -140,6 +159,7 @@ class ProductController
                 $productObj->setCategory($_POST['category']);
                 $productObj->setStock($_POST['stock']);
                 $productObj->setPrice($_POST['price']);
+                $productObj->setTotalPurchased($_POST['total_purchased']);
                 $productObj->setProductDesc($_POST['product_desc']);
 
                 $_SESSION['productObj'] = serialize($productObj);
@@ -179,6 +199,7 @@ class ProductController
                         $existingProduct->getStock(),
                         $existingProduct->getPrice(),
                         $existingProduct->getProductDesc(),
+                        $existingProduct->getTotalPurchased(),
                         $existingProduct->getProductID()
                     );
                     // Update inventory store
@@ -195,8 +216,9 @@ class ProductController
     {
         try {
             $productObj = new Product();
-            $productArr = $this->productModel->readOne($_GET['id']);
+            $productArr = $this->productModel->readOne($_GET['item_id']);
             foreach ($productArr as $row) {
+                $productObj->setProductID($row['product_id']);
                 $productObj->setProductName($row['product_name']);
                 $productObj->setCategory($row['category']);
                 $productObj->setStock($row['stock']);
@@ -204,7 +226,7 @@ class ProductController
                 $productObj->setProductDesc($row['product_desc']);
             }
             $_SESSION['productObj'] = serialize($productObj);
-            header("Location: views/product.php?item={$_GET['id']}");
+            header("Location: views/product.php?item={$_GET['item_id']}");
         } catch (Exception $e) {
             throw $e;
         }
@@ -214,9 +236,60 @@ class ProductController
     {
         try {
             $productArr = $this->productModel->readCategory($category);
-            $_SESSION['categoryStore'] = serialize($productArr);
+            $_SESSION['searchStore'] = serialize($productArr);
 
             header("Location: views/products.php?in=$category");
+        } catch (Exception $e) {
+            throw $e;
+        }
+    }
+
+    public function searchProduct()
+    {
+        try {
+            if (isset($_POST['search'])) {
+                $productArr = $this->productModel->search($_POST['searchTerm']);
+                $_SESSION['searchStore'] = serialize($productArr);
+                header("Location: views/products.php?result={$_POST['searchTerm']}");
+            } else {
+                echo "HERE";
+            }
+        } catch (Exception $e) {
+            throw $e;
+        }
+    }
+
+    public function searchInventory()
+    {
+        try {
+            if (isset($_POST['admin_search'])) {
+                $productArr = $this->productModel->search($_POST['searchTerm']);
+                $_SESSION['searchStore'] = serialize($productArr);
+                print_r($productArr);
+                // header("Location: views/admin/inventory.php?result={$_POST['searchTerm']}");
+            }
+        } catch (Exception $e) {
+            throw $e;
+        }
+    }
+
+    public function saleReport()
+    {
+        try {
+            $productObj = new Product();
+            $productArr = $this->productModel->readOne($_GET['report_id']);
+            foreach ($productArr as $row) {
+                $productObj->setProductName($row['product_name']);
+                $productObj->setCategory($row['category']);
+                $productObj->setStock($row['stock']);
+                $productObj->setPrice($row['price']);
+                $productObj->setProductDesc($row['product_desc']);
+                $productObj->setTotalSold($row['total_sold']);
+                $productObj->setTotalPurchased($row['total_purchased']);
+            }
+            $_SESSION['productObj'] = serialize($productObj);
+            print_r($productArr);
+            header("Location: views/admin/report.php?item={$_GET['report_id']}");
         } catch (Exception $e) {
             throw $e;
         }

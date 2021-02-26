@@ -6,7 +6,8 @@
     <section class="d-flex table-wrapper justify-content-center mt-4">
         <div class="container">
             <div class="my-4">
-                <h1 class="text-center">Users</h1>
+                <h5>Users</h5>
+                <hr class="m-0">
             </div>
             <table class="table border shadow-sm">
                 <thead class="bg-secondary text-white">

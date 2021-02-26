@@ -2,13 +2,15 @@
     <div class="container-fluid p-4">
         <div class="d-flex justify-content-around p-4">
             <div class=" foot border-start border-2 border-secondary">
-                <h6 class="ms-lg-4 mb-3 text-light fw-bold">Contact</h6>
-                <p class="text-secondary ms-lg-4">Twitter</p>
-                <p class="text-secondary ms-lg-4">Facebook</p>
-                <p class="text-secondary ms-lg-4">Instagram</p>
+                <h5 class="ms-lg-4 mb-3 text-light fw-bold">Contact</h5>
+                <p class="text-secondary ms-lg-4"><a class="nav-link m-0 p-0 text-secondary" href="https://bit.ly/3pMIj74">Facebook</a></p>
+                <p class="text-secondary ms-lg-4"><a class="nav-link m-0 p-0 text-secondary" href="https://bit.ly/3pMIj74">Twitter</a></p>
+                <p class="text-secondary ms-lg-4"><a class="nav-link m-0 p-0 text-secondary" href="https://bit.ly/3pMIj74">Instagram</a></p>
+                <p class="text-secondary ms-lg-4"><a class="nav-link m-0 p-0 text-secondary" href="https://bit.ly/3pMIj74">YouTube</a></p>
+
             </div>
             <div class="foot border-start border-2 border-secondary">
-                <h6 class="ms-lg-4 mb-3 text-light fw-bold">Image Attributions</h6>
+                <h5 class="ms-lg-4 mb-3 text-light fw-bold">Image Attributions</h5>
                 <p class="text-secondary ms-lg-4">Laptops and devices PNG Designed By cornecoba from
                     <a class="text-decoration-none" href="https://pngtree.com/freepng/devices-responsive-web-design_3540001.html"><span class="text-light">Pngtree.com</span></a>
                 </p>
@@ -29,7 +31,7 @@
                 </p>
             </div>
             <div class="foot border-start border-2 border-secondary">
-                <h6 class="ms-lg-4 mb-3 text-light fw-bold">Sponsors</h6>
+                <h5 class="ms-lg-4 mb-3 text-light fw-bold">Sponsors</h5>
                 <p class="text-secondary ms-lg-4">Mother Earth</p>
                 <p class="text-secondary ms-lg-4">The Supreme One</p>
                 <p class="text-secondary ms-lg-4">Dio From Jojo</p>

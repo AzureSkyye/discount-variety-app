@@ -7,7 +7,9 @@ class Product
     private $product_desc;
     private $category;
     private $price;
+    private $total_purchased;
     private $stock;
+    private $total_sold;
 
     public $errorMsg;
 
@@ -23,7 +25,8 @@ class Product
             'product_desc' => '',
             'category' => '',
             'price' => '',
-            'stock' => ''
+            'stock' => '',
+            'total_purchased' => ''
         );
     }
 
@@ -77,6 +80,16 @@ class Product
         $this->price = $price;
     }
 
+    public function getTotalPurchased()
+    {
+        return $this->total_purchased;
+    }
+
+    public function setTotalPurchased($total_purchased)
+    {
+        $this->total_purchased = $total_purchased;
+    }
+
     public function getStock()
     {
         return $this->stock;
@@ -85,5 +98,15 @@ class Product
     public function setStock($stock)
     {
         $this->stock = $stock;
+    }
+
+    public function getTotalSold()
+    {
+        return $this->total_sold;
+    }
+
+    public function setTotalSold($total_sold)
+    {
+        return $this->total_sold = $total_sold;
     }
 }

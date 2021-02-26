@@ -5,7 +5,8 @@
         <div class="container d-grid justify-content-center align-items-center p-4 shadow rounded border">
             <div class="d-grid">
                 <h2 class="text-center">Discount Variety</h2>
-                <p class="px-2 text-center">Already have an account? <a href="signup.php" class="px-2 text-success text-decoration-none">Sign up</a></p>
+                <p class="px-2 m-2 text-center">Already have an account? <a href="signup.php" class="px-2 text-success text-decoration-none">Sign up</a></p>
+                <p class="px-2 text-center"><a href="../index.php?user=guest" class="px-2 text-success text-decoration-none">Login as a guest</a></p>
             </div>
             <div class="mb-3 d-grid">
                 <p class="text-danger"><?php echo !empty($userObj->errorMsg) ? htmlspecialchars($userObj->errorMsg['login_error']) : ''; ?></p>

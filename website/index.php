@@ -1,16 +1,14 @@
 <?php
 session_unset();
-// Handlers
+
 require_once('controllers/UserController.php');
 require_once('controllers/ProductController.php');
-require_once('controllers/OrdersController.php');
+require_once('controllers/OrderController.php');
 
-// User Handler
+// Create controller objects
 $userController = new UserController();
-// Product Handler
 $productController = new ProductController();
-// Order Handler
-$ordersController = new OrdersController();
+$orderController = new OrderController();
 
 // Handle the appropriate requests
 try {
@@ -42,8 +40,8 @@ try {
             case "add":
                 $productController->addProduct();
                 break;
-            case "inventory":
-                $productController->inventoryStore();
+            case "read_all":
+                $productController->redirect();
                 break;
             case "delete":
                 $productController->deleteProduct();
@@ -54,9 +52,15 @@ try {
             case "update":
                 $productController->updateProduct();
                 break;
+            case 'search':
+                $productController->searchProduct();
+            case 'admin_search':
+                $productController->searchInventory();
         }
-    } else if (isset($_REQUEST['id'])) {
+    } else if (isset($_REQUEST['item_id'])) {
         $productController->displayProduct();
+    } else if (isset($_REQUEST['report_id'])) {
+        $productController->saleReport();
     } else if (isset($_REQUEST['category'])) {
         switch ($_REQUEST['category']) {
             case "Electronics":
@@ -78,6 +82,16 @@ try {
                 $productController->displayByCategory("tools");
                 break;
         }
+    }
+
+    // Order handler
+    if (isset($_REQUEST['order'])) {
+        switch ($_REQUEST['order']) {
+            case "confirm":
+                $orderController->placeOrder();
+        }
+    } else if (isset($_REQUEST['my_id'])) {
+        $orderController->redirect();
     }
 } catch (Exception $e) {
     throw $e;

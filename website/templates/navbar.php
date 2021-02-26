@@ -17,16 +17,25 @@
                 </li>
             </ul>
             <div class="d-flex">
-                <form action="" method="get" class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search Products" aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit">Search</button>
+                <form action="../index.php?product=search" method="post" class="d-flex">
+                    <input name="searchTerm" class="form-control me-2" type="search" placeholder="Search Products" aria-label="Search">
+                    <button name="search" class="btn btn-outline-light" type="submit">Search</button>
                 </form>
                 <div class="d-flex justify-content-between align-items-center px-4">
-                    <svg class="text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 40px">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    <small class="pe-4 ps-2 text-secondary align-self-center"><?php echo $userObj->getFirstName(); ?></small>
-                    <a class="px-2 ms-2 text-secondary text-decoration-none" href="../index.php?user=logout">Logout</a>
+                    <?php if ($userObj->isAdmin() == 'true') { ?>
+                        <a class="me-4" href="../index.php?product=read_all">
+                            <button class="btn btn-outline-light" type="submit">Admin Panel</button>
+                        </a>
+                    <?php } ?>
+                    <a href="../index.php?my_id=<?php echo $userObj->getUserID(); ?>">
+                        <svg class="text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 40px">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </a>
+                    <small class="pe-3 ps-2 text-secondary align-self-center"><?php echo $userObj->getFirstName() ?></small>
+                    <a class="px-2 ms-2 text-secondary text-decoration-none" href="../index.php?user=logout">
+                        <?php echo $userObj->getFirstName() == "Guest" ? "Signup/Signin" : "Logout"; ?>
+                    </a>
                 </div>
             </div>
         </div>

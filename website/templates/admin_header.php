@@ -1,18 +1,28 @@
 <?php
 
-include('../../models/Orders.php');
+include('../../models/Order.php');
 include('../../models/Product.php');
 include('../../models/User.php');
 session_start();
+
+
+
 
 // User Objects
 $userObj = isset($_SESSION['userObj']) ? unserialize($_SESSION['userObj']) : new User();
 $userStore = isset($_SESSION['userStore']) ? unserialize($_SESSION['userStore']) : NULL;
 
+// Prevent unauthorized access
+if ($userObj->isAdmin() == 'false') {
+    header('Location: ../errors/error401.php');
+}
+
 // Product Objects
 $productObj = isset($_SESSION['productObj']) ? unserialize($_SESSION['productObj']) : new Product();
 $productStore = isset($_SESSION['productStore']) ? unserialize($_SESSION['productStore']) : NULL;
+$searchStore = isset($_SESSION['searchStore']) ? unserialize($_SESSION['searchStore']) : NULL;
 
+$sum = 0;
 ?>
 
 

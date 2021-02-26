@@ -6,7 +6,7 @@
     <form class="container first forms d-grid justify-content-center align-items-center" action="../../index.php?product=add" method="post">
         <div class="container justify-content-center align-items-center p-4">
             <div class="d-flex justify-content-between">
-                <h2 class="">Add Product</h2>
+                <h3 class="">Add Product</h3>
                 <div class="">
                     <button name="create" class="btn btn-outline-dark rounded">Add Product</button>
                 </div>
@@ -39,6 +39,10 @@
             <div class="my-4 d-flex justify-content-between">
                 <label class="me-4 my-2 form-label fw-bold">In Stock</label>
                 <input name="stock" type="number" class="field px-2 m-0 p-0 rounded border border-secondary" placeholder="">
+            </div>
+            <div class="my-4 d-flex justify-content-between">
+                <label class="me-4 my-2 form-label fw-bold">Total Purchased</label>
+                <input name="total_purchased" type="number" class="field px-2 m-0 p-0 rounded border border-secondary" placeholder="">
             </div>
             <div class="my-4 d-flex justify-content-between">
                 <label class="me-4 my-2 form-label fw-bold">Price of Item</label>

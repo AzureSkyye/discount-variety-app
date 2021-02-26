@@ -1,16 +1,20 @@
 <?php
 
-include('../models/Orders.php');
+include('../models/Order.php');
 include('../models/Product.php');
 include('../models/User.php');
 session_start();
 
+// User Objects
 $userObj = isset($_SESSION['userObj']) ? unserialize($_SESSION['userObj']) : new User();
 
 // Product Objects
 $productObj = isset($_SESSION['productObj']) ? unserialize($_SESSION['productObj']) : new Product();
 $productStore = isset($_SESSION['productStore']) ? unserialize($_SESSION['productStore']) : NULL;
-$categoryStore = isset($_SESSION['categoryStore']) ? unserialize($_SESSION['categoryStore']) : NULL;
+$searchStore = isset($_SESSION['searchStore']) ? unserialize($_SESSION['searchStore']) : NULL;
+
+// Order Objects
+$orderObj = isset($_SESSION['orderObj']) ? unserialize($_SESSION['orderObj']) : new Order();
 
 // Initialize Count
 $count = 0;

@@ -1,10 +1,9 @@
 <!-- Categories section-->
 <section id="categories" class="sections">
     <div class="container">
-        <div class="prod-head d-flex justify-content-center align-item-center">
-            <h3 class="fs-5 fw-bold bg-dark rounded text-light px-4 py-2">Browse by Category</h3>
-        </div>
-        <div class="mt-lg-5 mt-sm-4 card-group">
+        <h6 class="pt-4 m-0 text-center">Browse by Category</h6>
+
+        <div class="mt-lg-2 mt-sm-1 card-group border py-4">
             <div class="row d-flex justify-content-around align-items-center">
 
                 <!-- Electronics Card -->
@@ -15,9 +14,10 @@
                         </svg>
                     </div>
                     <img src="../assets/Electronics.png" alt="" class="card-img-top align-self-center" style="width: 70%">
+                    <hr class="m-0">
                     <div class="card-body text-center">
                         <h5 class="card-title fs-5 fw-bold">Electronics</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Check out the latest electonics we have in stock including gaming laptops,cellphones, smart TV etc.</p>
                     </div>
                     <div class="card-footer bg-dark d-flex justify-content-center align-items-center">
                         <a href="../index.php?category=Electronics" method="get">
@@ -34,9 +34,10 @@
                         </svg>
                     </div>
                     <img src="../assets/Stationary.png" alt="" class="card-img-top align-self-center" style="width: 70%">
+                    <hr class="m-0">
                     <div class="card-body text-center border-t border-2 border-secondary ">
-                        <h5 class="card-title fs-5 fw-bold">Stationary Tools</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <h5 class="card-title fs-5 fw-bold">Stationery Tools</h5>
+                        <p class="card-text">Check out the most elegant Stationary Tools we have in stock ranging from canvases to drawing pens etc.</p>
                     </div>
                     <div class="card-footer bg-dark d-flex justify-content-center align-items-center">
                         <a href="../index.php?category=Stationary" method="get">
@@ -53,9 +54,10 @@
                         </svg>
                     </div>
                     <img src="../assets/Clothing.png" alt="" class="card-img-top align-self-center" style="width: 70%">
+                    <hr class="m-0">
                     <div class="card-body text-center">
                         <h5 class="card-title fs-5 fw-bold">Clothing and Shoes</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Check out the most fashionable Clothing and Shoes currently in stock for both men and women.</p>
                     </div>
                     <div class="card-footer bg-dark d-flex justify-content-center align-items-center">
                         <a href="../index.php?category=Clothing" method="get">
@@ -72,9 +74,10 @@
                         </svg>
                     </div>
                     <img src="../assets/Games.png" alt="" class="card-img-top align-self-center" style="width: 70%">
+                    <hr class="m-0">
                     <div class="card-body text-center">
                         <h5 class="card-title fs-5 fw-bold">Video Games and Consoles</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Check out the highly rated Video Games and Consoles currently in stock including Zelda and PS4 etc.</p>
                     </div>
                     <div class="card-footer bg-dark d-flex justify-content-center align-items-center">
                         <a href="../index.php?category=Games" method="get">
@@ -91,9 +94,10 @@
                         </svg>
                     </div>
                     <img src="../assets/Furniture.png" alt="" class="card-img-top align-self-center" style="width: 70%">
+                    <hr class="m-0">
                     <div class="card-body text-center">
                         <h5 class="card-title fs-5 fw-bold">Furniture and Accessories</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Check out the most modernized Furniture and Accessories currently in stock including dinning set,sofa etc.</p>
                     </div>
                     <div class="card-footer bg-dark d-flex justify-content-center align-items-center">
                         <a href="../index.php?category=Furniture" method="get">
@@ -110,9 +114,10 @@
                         </svg>
                     </div>
                     <img src="../assets/Tools.png" alt="" class="card-img-top align-self-center" style="width: 70%">
+                    <hr class="m-0">
                     <div class="card-body text-center">
                         <h5 class="card-title fs-5 fw-bold">Tools and Equipment</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Check out the handy Tools and Equipment currently in stock including handheld powersaws and tool kits etc.</p>
                     </div>
                     <div class="card-footer bg-dark d-flex justify-content-center align-items-center">
                         <a href="../index.php?category=Tools" method="get">
@@ -124,3 +129,4 @@
         </div>
     </div>
 </section>
+
