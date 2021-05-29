@@ -2,5 +2,88 @@
     --primary: #f4f4f2;
     --secondary: #e8e8e8;
     --hightlight: #bbbfca;
-    --navigation: #495464;
+    --navigation: #343a40;
+}
+
+body,
+html {
+    padding: 0;
+    margin: 0;
+    background-color: var(--primary);
+    position: relative;
+    font-family: 'Roboto', serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.nav-link {
+    font-family: 'Quicksand', sans-serif;
+}
+
+a {
+    outline-style: none;
+}
+
+footer {
+    margin-top: 100px;
+}
+
+.product-img {
+    border-right: 1px solid #a4a4a4;
+}
+
+#landing {
+    padding: 60px 0;
+}
+
+.sections {
+    border-bottom: 1px solid var(--hightlight);
+}
+
+#add-product {
+    min-height: 100vh;
+}
+
+#categories {
+    padding: 0px 0px 60px;
+}
+
+.first {
+    background-color: var(--primary);
+}
+
+.second,
+.item,
+.wrap {
+    background-color: var(--secondary);
+}
+
+div>.info {
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.field {
+    width: 25rem;
+    padding: 5px 8px;
+    outline-style: initial;
+    outline-color: brown;
+}
+
+.forms,
+.table-wrapper,
+#view {
+    min-height: 100vh;
+}
+
+hr {
+    height: 2px;
+}
+
+.radio {
+    margin-right: 20px;
 }

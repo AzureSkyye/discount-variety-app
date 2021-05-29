@@ -4,11 +4,14 @@ class Product
 {
     private $product_id;
     private $product_name;
+    private $product_desc;
     private $category;
     private $price;
+    private $total_purchased;
     private $stock;
+    private $total_sold;
 
-    public $product_error;
+    public $errorMsg;
 
     public function __construct()
     {
@@ -16,12 +19,27 @@ class Product
         $this->category = '';
         $this->price = '';
         $this->stock = '';
-        $this->product_error = array();
+        $this->total_purchased = '';
+        $this->total_sold = '';
+
+        $this->errorMsg = array(
+            'product_name' => '',
+            'product_desc' => '',
+            'category' => '',
+            'price' => '',
+            'stock' => '',
+            'total_purchased' => ''
+        );
     }
 
     public function getProductID()
     {
         return $this->product_id;
+    }
+
+    public function setProductID($product_id)
+    {
+        $this->product_id = $product_id;
     }
 
     public function getProductName()
@@ -32,6 +50,16 @@ class Product
     public function setProductName($product_name)
     {
         $this->product_name = $product_name;
+    }
+
+    public function getProductDesc()
+    {
+        return $this->product_desc;
+    }
+
+    public function setProductDesc($product_desc)
+    {
+        $this->product_desc = $product_desc;
     }
 
     public function getCategory()
@@ -54,13 +82,33 @@ class Product
         $this->price = $price;
     }
 
+    public function getTotalPurchased()
+    {
+        return $this->total_purchased;
+    }
+
+    public function setTotalPurchased($total_purchased)
+    {
+        $this->total_purchased = $total_purchased;
+    }
+
     public function getStock()
     {
         return $this->stock;
     }
 
-    public function setStock()
+    public function setStock($stock)
     {
-        return $this->stock;
+        $this->stock = $stock;
+    }
+
+    public function getTotalSold()
+    {
+        return $this->total_sold;
+    }
+
+    public function setTotalSold($total_sold)
+    {
+        return $this->total_sold = $total_sold;
     }
 }

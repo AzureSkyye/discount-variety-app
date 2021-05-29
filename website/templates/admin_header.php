@@ -1,23 +1,28 @@
 <?php
 
-include('../models/Order.php');
-include('../models/Product.php');
-include('../models/User.php');
+include('../../models/Order.php');
+include('../../models/Product.php');
+include('../../models/User.php');
 session_start();
+
+
+
 
 // User Objects
 $userObj = isset($_SESSION['userObj']) ? unserialize($_SESSION['userObj']) : new User();
+$userStore = isset($_SESSION['userStore']) ? unserialize($_SESSION['userStore']) : NULL;
+
+// Prevent unauthorized access
+if ($userObj->isAdmin() == 'false') {
+    header('Location: ../errors/error401.php');
+}
 
 // Product Objects
 $productObj = isset($_SESSION['productObj']) ? unserialize($_SESSION['productObj']) : new Product();
 $productStore = isset($_SESSION['productStore']) ? unserialize($_SESSION['productStore']) : NULL;
-$searchStore = isset($_SESSION['searchStore']) ? unserialize($_SESSION['searchStore']) : NULL;
+$inventoryStore = isset($_SESSION['inventory_store']) ? unserialize($_SESSION['inventory_store']) : NULL;
 
-// Order Objects
-$orderObj = isset($_SESSION['orderObj']) ? unserialize($_SESSION['orderObj']) : new Order();
-
-// Initialize Count
-$count = 0;
+$sum = 0;
 ?>
 
 
@@ -34,7 +39,7 @@ $count = 0;
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
     <!-- Our Stylesheet -->
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../../styles/styles.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
